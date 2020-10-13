@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+a {
+    text-decoration: none;
+}
+
+a.box {
+    padding: 10px;
+    font-family: Quicksand;
+    border-radius: 17px;
+    display: inline;
+    margin-left: 25px;
+    /* unvisited link */
+}
+
+a.box:link {
+    color: #B1BAD0;
+}
+
+
+/* visited link */
+
+a.box:visited {
+    font: normal normal normal 16px/20px Quicksand;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #B1BAD0;
+    display: inline;
+}
+
+
+/* mouse over link */
+
+a.box:hover {
+    color: #FFFFFF;
+    font: normal normal normal 17px/24px Quicksand;
+    font-weight: bolder;
+    background-color: #5379F5;
+}
+
+
+/* selected link */
+
+a.box:active {
+    color: black;
+}
+
+a.title:visited {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+a.title:hover {
+    background-color: #5379F5;
+    color: #FFFFFF;
+}
+
+.button {
+    background-color: #ffffff;
+    border: 0px;
+}
+
+
+/****Blue Title***/
+
+.menutitlebox {
+    position: relative;
+    height: 46px;
+    width: 10px;
+    background-color: #5379F5;
+    border: 1px solid;
+    border-radius: 12px 0px;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 4px;
+}
+
+.BlueTitle {
+    display: flex;
+    position: relative;
+    height: 46px;
+    width: 645px;
+    margin: 0px;
+    font: normal normal normal 24px/34px Quicksand;
+    color: #5379F5;
+    text-align: left;
+    letter-spacing: 0px;
+    font-weight: bold;
+    margin-bottom: 36px;
+}
+
+.Status {
+    text-align: left;
+    font: normal normal 300 12px/18px Quicksand;
+    letter-spacing: 0px;
+    color: #B1BAD0;
+    opacity: 1;
+}
+
+
+/*Extra icon*/
+
+.extraicon {
+    background-color: #5379F5;
+    border-radius: 20px 0px;
+    width: 10px;
+    height: 46px;
+    margin-right: 9px;
+}
+
+
+/******Header******/
+
+.header {
+    width: 100%;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    /*Searching*/
+    .searching {
+        margin: 0px auto;
+        margin-top: 17px;
+        padding: 0px;
+        width: 77.5%;
+        /*77.5%*/
+        max-width: 992px;
+        height: 67px;
+        display: block;
+        position: relative;
+        .headericon {
+            position: relative;
+            float: left;
+            max-width: 147px;
+            max-height: 32px;
+        }
+        .searchingbox {
+            position: relative;
+            float: right;
+            width: 270px;
+            height: 39px;
+            display: flex;
+            border: 1px solid #F0F2FD;
+            border-radius: 20px;
+            margin-right: 10px;
+            .searchingicon {
+                margin-left: 44px;
+                margin-top: 7px;
+            }
+        }
+    }
+    /*Menu*/
+    .menu {
+        position: relative;
+        margin: 0px auto;
+        width: 77.5%;
+        /*77.5%*/
+        max-width: 992px;
+        height: 34px;
+        display: flex;
+        .menubox {
+            position: relative;
+            margin: 0px 0px 0px 0px;
+            display: inline;
+        }
+    }
+}
+
+
+/******Body******/
+
+.Body {
+    display: flex;
+    position: relative;
+    width: 992px;
+    margin: auto;
+    .Left {
+        display: block;
+        margin: auto;
+        margin-right: 16px;
+        .Main {
+            position: relative;
+            z-index: 1;
+            width: 1280px;
+            margin: 0px auto;
+            margin-top: 50px;
+            padding: 0px;
+            display: block;
+        }
+        .MainNews {
+            display: block;
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+            width: 656px;
+            font-weight: bolder;
+            text-align: left;
+            font: normal normal normal 28px/34px Quicksand;
+            font-weight: bolder;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;
+        }
+        .ExtraNews {
+            display: flex;
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+            width: 645px;
+            font-weight: bolder;
+            text-align: left;
+            font: normal normal normal 20px/28px Quicksand;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;
+            margin-bottom: 16px;
+            padding-bottom: 17px;
+            border-bottom: 1px solid #A2A6BB;
+        }
+    }
+    .Right {
+        display: block;
+        margin: 0px;
+        width: 320px;
+        .VideoNews {
+            text-align: left;
+            font: normal normal bold 14px/20px Quicksand;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;
+            padding-bottom: 17px;
+            border-bottom: 1px solid #A2A6BB;
+            margin-bottom: 20px;
+        }
+        .Status {
+            display: flex;
+            text-align: left;
+            font: normal normal normal 10px/16px Quicksand;
+            letter-spacing: 0px;
+            color: #A2A6BB;
+            opacity: 1;
+        }
+        .AudioNews {
+            display: flex;
+            width: 320px;
+            height: 88px;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 17px;
+            margin-bottom: 16px;
+            .title {
+                top: 2365px;
+                left: 940px;
+                width: 192px;
+                height: 56px;
+                text-align: left;
+                font: normal normal bold 14px/20px Quicksand;
+                font-weight: bolder;
+                letter-spacing: 0px;
+                color: #000000;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.SummarizedNews {
+    display: flex;
+    width: 992px;
+    margin: auto;
+    .subSummarized {
+        width: 320px;
+        margin-right: auto;
+        text-align: left;
+        font: normal normal bold 14px/20px Quicksand;
+        letter-spacing: 0px;
+        color: #000000;
+        opacity: 1;
+        border-bottom: 1px solid #BFC7D9;
+        padding-bottom: 14px;
+    }
+}
+
+
+/********Footer******/
+
+.footer {
+    width: 1280px;
+    margin: 0px auto;
+    margin-top: 75px;
+    padding-top: 17px;
+    padding-left: 134px;
+    background: #5379F5;
+    text-align: left;
+    font: normal normal normal 14px/21px Quicksand;
+    letter-spacing: -0.35px;
+    color: #F0F2FD;
+    opacity: 1;
+}
