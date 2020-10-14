@@ -1,16 +1,16 @@
 import React from 'react';
-import Header from './component/Header';
-import Footer from './component/Footer';
-import Body from './component/Body';
-import './component/css/Display.scss';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HOME_PAGE } from 'component/routes';
+// import {Provider} from 'react-redux';
+import {Footer} from 'component/pages/Footer/Footer';
+import {Header} from 'component/pages/Header/Header';
+import Home from 'component/pages/Body/Home';
 
 
 function App() {
   return (
-    <div className="Main">
-      <Header></Header>
-      <Body></Body>
-      <Footer></Footer>
+    <div>
+      <Home></Home>
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import BlueTitle from './BlueTitle';
-import MoreNewsImg from './Figure/MoreNewsImg.png';
-import LikeIcon from './Figure/LikeIcon.svg';
-import CommentIcon from './Figure/CommentIcon.svg';
-import './css/Display.scss';
+import MoreNewsImg from 'component/Figure/MoreNewsImg.png';
+import LikeIcon from 'component/Figure/LikeIcon.svg';
+import CommentIcon from 'component/Figure/CommentIcon.svg';
+import 'component/css/Display.scss';
 
 function SummarizedNews(props) {
     const [like, setLike] = useState(0);

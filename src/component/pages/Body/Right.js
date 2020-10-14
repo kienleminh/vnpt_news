@@ -3,7 +3,7 @@ import VideoNews from './VideoNews';
 import BlueTitle from './BlueTitle';
 import AudioNews from './AudioNews';
 import ImgNews from './ImgNews';
-import './css/Display.scss';
+import 'component/css/Display.scss';
 
 function Right(props) {
     return (

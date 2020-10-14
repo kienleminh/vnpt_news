@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import LikeIcon from './Figure/LikeIcon.svg';
-import CommentIcon from './Figure/CommentIcon.svg';
-import YoutubeIcon from './Figure/YoutubeIcon.jpg';
-import './css/Display.scss';
+import LikeIcon from 'component/Figure/LikeIcon.svg';
+import CommentIcon from 'component/Figure/CommentIcon.svg';
+import YoutubeIcon from 'component/Figure/YoutubeIcon.jpg';
+import 'component/css/Display.scss';
 
 
 function VideoNews(props) {

@@ -1,12 +1,13 @@
 import React from 'react';
 import BlueTitle from './BlueTitle';
-import './css/Display.scss';
+import 'component/css/Display.scss';
 
 class ExtraNews extends React.PureComponent {
+    
     render() {
         return (
             <div>
-                <BlueTitle title={this.props.extratitle} />
+                <a href="/videonews"><BlueTitle title={this.props.extratitle} /></a>
                 <div className="ExtraNews">
                     <img src={this.props.img} alt="Extra News" />
                     <div style={{paddingLeft:'16px'}}>

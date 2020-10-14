@@ -1,6 +1,6 @@
 import React from 'react';
-import TetImg from './Figure/TetImg.png';
-import './css/Display.scss';
+import TetImg from 'component/Figure/TetImg.png';
+import 'component/css/Display.scss';
 
 function ImgNews(props) {
     return(

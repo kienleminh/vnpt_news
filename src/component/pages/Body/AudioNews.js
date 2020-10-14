@@ -1,6 +1,6 @@
 import React from 'react';
-import './css/Display.scss';
-import AudioNewsImg from './Figure/AudioNewsImg.png';
+import AudioNewsImg from 'component/Figure/AudioNewsImg.png';
+import 'component/css/Display.scss';
 
 function AudioNews(props){
     return(

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/Display.scss';
+import 'component/css/Display.scss';
 
 class MainNews extends Component {
     render() {
