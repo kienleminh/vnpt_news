@@ -10,7 +10,7 @@ function Header(){
     return (
           <div className="header">
             <div className="searching">
-              <a className="icon" href="/" target="_parent"><img src={HomeIcon} alt="Hình ảnh không tồn tại" /></a>
+              <a className="icon" href="/" target="_parent"><img src={HomeIcon} alt="Home Icon" /></a>
               <div style={{float: 'right', height: '36px', width: '36px'}}>
               <input type="image" src={AccountIcon} alt="Account Icon" onclick="appear_account()" />
               </div>
@@ -19,7 +19,7 @@ function Header(){
                   <form action="#" method="post" name="searching" style={{padding: '0px'}}>
                     <input type="search" name="search" style={{border: '1px solid #F0F2FD', marginLeft: '22px',
                      marginTop: '10px', font: 'normal normal normal 14px/21px Quicksand', letterSpacing: '-0.35px',
-                      color: '#F0F2FD', opacity: '1'}} placeholder="Nhập nội dung cần tìm kiếm" />
+                      color: '#000000', opacity: '1'}} placeholder="Nhập nội dung cần tìm kiếm" />
                   </form>
                 </div>
                 <a className="searchingicon" href="http://google.com.vn" target="_self"><img src={SearchingIcon} alt="Searching Icon" /></a>

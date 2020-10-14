@@ -1,7 +1,4 @@
 import React, { Component } from 'react'; 
-import { BrowserRouter as Link } from 'react-router-dom';
-import Home from 'component/pages/Body/Home';
-import ReadingNews from './ReadingNews';
 import MainNews from './MainNews';
 import ExtraNews from './ExtraNews';
 import ExtraNewsImg from 'component/Figure/ExtraNewsImg.png';
@@ -32,9 +29,9 @@ class BodyHome extends Component {
     }
     return(
         <>
-            <div className="Body">
+            <div className="body">
                 <div className="Left">
-                    <a href="/">
+                    <a href="/readingnews">
                     <MainNews title={News.title} img={MainNewsImg} />
                     </a>
                     <ExtraNews title={News.title} img={News.img} time={News.time} extratitle="Xu hướng"/>

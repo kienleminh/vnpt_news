@@ -8,27 +8,28 @@ class ExtraNews extends React.PureComponent {
         return (
             <div>
                 <a href="/videonews"><BlueTitle title={this.props.extratitle} /></a>
-                <div className="ExtraNews">
+                <a href='/readingnews' className="ExtraNews">
                     <img src={this.props.img} alt="Extra News" />
                     <div style={{paddingLeft:'16px'}}>
                         <div>{this.props.title}</div>
                         <div className="Status">Vietnamnet . {this.props.time} phút trước</div>
                     </div>
-                </div>
-                <div className="ExtraNews">
+                </a>
+                <a href='/readingnews' className="ExtraNews">
                     <img src={this.props.img} alt="Extra News" />
                     <div style={{paddingLeft:'16px'}}>
                         <div>{this.props.title}</div>
                         <div className="Status">Vietnamnet . {this.props.time} phút trước</div>
                     </div>
-                </div>
-                <div className="ExtraNews">
+                </a>
+                <a href='/readingnews' className="ExtraNews">
                     <img src={this.props.img} alt="Extra News" />
                     <div style={{paddingLeft:'16px'}}>
                         <div>{this.props.title}</div>
                         <div className="Status">Vietnamnet . {this.props.time} phút trước</div>
                     </div>
-                </div>
+                </a>
+                
             </div>
         )
     }
