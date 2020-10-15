@@ -11,6 +11,12 @@ function BodyVideo() {
         img: ExtraNewsImg,
         extratitle: 'Tin cùng chủ đề',
     }
+    var Extra2 = {
+        title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong tỏa trong thời gian dài',
+        time: 6,
+        img: ExtraNewsImg,
+        extratitle: 'Xem nhiều',
+    }
     return (
         <div className="body">
             <div className="SubNews">
@@ -21,7 +27,8 @@ function BodyVideo() {
                     <div className="menutitle" style={{font: 'normal normal 300 16px/18px Quicksand'}}>Vietnamnet . 6 phút trước</div>
                     
                 </div>
-                <ExtraNews title={Extra.title} img={Extra.img} time={Extra.time} extratitle={Extra.extratitle}></ExtraNews>
+                <ExtraNews title={Extra.title} img={Extra.img} time={Extra.time} extratitle={Extra.extratitle}/>
+                <ExtraNews title={Extra2.title} img={Extra2.img} time={Extra2.time} extratitle={Extra2.extratitle}/>
             </div>
         </div>
     )

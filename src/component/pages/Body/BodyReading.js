@@ -19,7 +19,12 @@ function BodyReading() {
         img: ExtraNewsImg,
         extratitle: 'Tin cùng chủ đề',
     }
-
+    var Extra2 = {
+        title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong tỏa trong thời gian dài',
+        time: 6,
+        img: ExtraNewsImg,
+        extratitle: 'Xem nhiều',
+    }
     return(
         <div className="body">
             <div class="SubNews">
@@ -38,7 +43,7 @@ function BodyReading() {
                     trong khi doanh thu từ việc xuất bản sách nói trên toàn cầu đạt mức 12,3 tỷ USD. <br/>Trang Statista 
                     cho biết hệ thống các cửa hàng sách ở Mỹ trung bình thu về khoảng 10 tỷ USD mỗi năm, chưa kể đến chuỗi 
                     thương mại điện tử khổng lồ như Amazon cũng góp phần cạnh tranh mạnh trong ngành.
-                        <div style={{maxWidth: '500px'}}><img src={ReadingNews.img} alt="Reading News"/></div>
+                        <div><img src={ReadingNews.img} alt="Reading News"/></div>
                     Bên trong một tiệm sách của Amazon tại Mỹ. Ảnh: Forbes. <br/>Tuy nhiên, cùng với sự phát triển của công nghệ, 
                     thị hiếu của bạn đọc đang dần hướng tới các nền tảng đọc sách trực tuyến thay vì mua sắm tại các hiệu sách truyền 
                     thống. <br/><br/>Barnes & Noble, một trong những nhà bán sách lớn nhất ở Mỹ đã chứng kiến ​​doanh thu giảm liên tục 
@@ -53,7 +58,8 @@ function BodyReading() {
                     cho mỗi sinh viên.</div>
                 </div>
                 <div style={{marginTop: '50px'}}/>
-                <ExtraNews title={Extra.title} img={Extra.img} time={Extra.time} extratitle={Extra.extratitle}></ExtraNews>
+                <ExtraNews title={Extra.title} img={Extra.img} time={Extra.time} extratitle={Extra.extratitle}/>
+                <ExtraNews title={Extra2.title} img={Extra2.img} time={Extra2.time} extratitle={Extra2.extratitle}/>
             </div>
         </div>
     )
