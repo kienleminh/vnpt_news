@@ -3,6 +3,7 @@ import HomeIcon from 'component/Figure/HomeIcon.png';
 import AccountIcon from 'component/Figure/account.svg';
 import SearchingIcon from 'component/Figure/SearchIcon.svg';
 import LikeIcon from 'component/Figure/LikeIcon.svg';
+import Signup from '../Body/Signup';
 import 'component/css/Display.scss';
 import {VID_NEWS} from '../../routes';
 
@@ -36,6 +37,7 @@ function Header(){
               <span className="menubox"><a className="box" href={VID_NEWS} target="_self" id="menutitle">Audio</a></span>
               <span className="menubox"><a className="box" href={VID_NEWS} target="_self" id="menutitle">Giáo dục</a></span>
             </div>
+            <Signup/>
           </div>
 );
 }

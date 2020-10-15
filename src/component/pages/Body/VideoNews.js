@@ -7,8 +7,11 @@ function VideoNews(props) {
     return(
         <div>
             <div className="VideoNews">
-                <img src={props.img} alt="Video News Img" />
-                <div>{props.title}</div>
+                <a href="/videonews">
+                    <img src={props.img} alt="Video News Img" />
+                    <div>{props.title}</div>
+
+                </a>
                 <div className="Status">
                     Vnexpress . {props.time} phút trước
                     <StatusTab/>
