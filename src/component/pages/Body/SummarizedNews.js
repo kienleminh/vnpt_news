@@ -1,13 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import BlueTitle from './BlueTitle';
 import MoreNewsImg from 'component/Figure/MoreNewsImg.png';
-import LikeIcon from 'component/Figure/LikeIcon.svg';
-import CommentIcon from 'component/Figure/CommentIcon.svg';
+import StatusTab from './Statustab';
 import 'component/css/Display.scss';
 
 function SummarizedNews(props) {
-    const [like, setLike] = useState(0);
-    const [comment, setComment] = useState(0);
     return (
         
         <div className="subSummarized">
@@ -17,16 +14,7 @@ function SummarizedNews(props) {
                 <div>{props.title}</div>
                 <div className="Status">
                     Vietnamnet . {props.time} phút trước
-                    <span style={{marginLeft: '119px'}}>
-                        <span  style={{marginRight: '7px'}} >{like}</span>
-                        <button onClick={() => setLike(like+1)}>
-                            <img src={LikeIcon} alt="Like Icon"/>
-                        </button>
-                        <span style={{marginLeft: '7px', marginRight: '7px'}} >{comment}</span>
-                        <button onClick={() => setComment(comment+1)}>
-                            <img src={CommentIcon} alt="Comment Icon"/>
-                        </button>
-                    </span>
+                    <StatusTab/>
                 </div>
             </div>
 

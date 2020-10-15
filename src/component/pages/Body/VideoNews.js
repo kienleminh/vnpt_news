@@ -1,13 +1,9 @@
-import React, {useState} from 'react';
-import LikeIcon from 'component/Figure/LikeIcon.svg';
-import CommentIcon from 'component/Figure/CommentIcon.svg';
-import YoutubeIcon from 'component/Figure/YoutubeIcon.jpg';
+import React from 'react';
+import StatusTab from './Statustab';
 import 'component/css/Display.scss';
 
 
 function VideoNews(props) {
-    const [like, setLike] = useState(888);
-    const [comment, setComment] = useState(888);
     return(
         <div>
             <div className="VideoNews">
@@ -15,19 +11,7 @@ function VideoNews(props) {
                 <div>{props.title}</div>
                 <div className="Status">
                     Vnexpress . {props.time} phút trước
-                    <div style={{marginLeft: '60px'}}>
-                        <a href="http://youtube.com/" >
-                            <img src={YoutubeIcon} alt="Youtube Icon" style={{height: '13px', width: '15px', marginRight: '16px'}}/>
-                        </a>
-                        <span  style={{marginRight: '7px'}} >{like}</span>
-                        <button onClick={() => setLike(like+1)}>
-                            <img src={LikeIcon} alt="Like Icon"/>
-                        </button>
-                        <span style={{marginLeft: '7px', marginRight: '7px'}} >{comment}</span>
-                        <button onClick={() => setComment(comment+1)}>
-                            <img src={CommentIcon} alt="Comment Icon"/>
-                        </button>
-                    </div>
+                    <StatusTab/>
                 </div>
 
             </div>
