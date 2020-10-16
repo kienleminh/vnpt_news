@@ -27,7 +27,7 @@ function BodyReading() {
     }
     return(
         <div className="body">
-            <div class="SubNews">
+            <div className="SubNews">
                 <div className="topic">
                     {ReadingNews.topic}
                 </div>

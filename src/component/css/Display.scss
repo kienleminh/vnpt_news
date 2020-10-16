@@ -377,6 +377,12 @@ a.title:hover {
     color: #F0F2FD;
     opacity: 1;
 }
+.disappear {
+    visibility: hidden;
+}
+.appear {
+    visibility: visible;
+}
 .dialogbackground {
     margin: 0px auto;
     padding: 0px;
@@ -388,7 +394,6 @@ a.title:hover {
     top: 0px;
     left: 0px;
     background-color: #000000B3;
-    visibility: hidden;
     display: flex;
     .dialog {
         position: relative;
