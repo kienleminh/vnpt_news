@@ -10,13 +10,13 @@ function Signup(props) {
             <div className="icondialog" >
                 <div >DIGILIFE</div>
             </div>
-            <div className="content">Mời bạn đăng ký gói <br/><span >[Tên gói nội dung tương ứng]</span> <br/>để trải nghiệm nội dung <br/>
-                <span >
+            <div className="content">Mời bạn đăng ký gói <br/>
+            <span >[Tên gói nội dung tương ứng]</span>
+                <br/>để trải nghiệm nội dung <br/>
+            <span >
             <input type="button" value="Bỏ qua" onClick={() => setDis(!dis)}/>
                 <button >
                 <div >Đăng kí</div>
-
-
                 </button>
             </span>
                 <div >Tham khảo các gói cước khác</div>

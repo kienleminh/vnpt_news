@@ -395,6 +395,7 @@ a.title:hover {
     left: 0px;
     background-color: #000000B3;
     display: flex;
+    z-index: 1;
     .dialog {
         position: relative;
         margin: 0px auto;
