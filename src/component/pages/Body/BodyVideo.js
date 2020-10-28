@@ -1,10 +1,14 @@
 import React from 'react';
-import iframe from 'react-iframe';
 import ExtraNews from './ExtraNews';
 import ExtraNewsImg from 'component/Figure/ExtraNewsImg.png';
 import 'component/css/Display.scss';
+import {VideoLink} from 'component/Video';
 
 function BodyVideo() {
+    const Video = {
+        topic: 'Video',
+        title: 'Người Mỹ chi hàng trăm triệu USD mỗi năm cho việc đọc sách',
+    }
     var Extra = {
         title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong tỏa trong thời gian dài',
         time: 6,
@@ -20,10 +24,12 @@ function BodyVideo() {
     return (
         <div className="body">
             <div className="SubNews">
-                <a className="topic" href="/videonews" >Video</a>
+                <a className="topic" href="/videonews" >{Video.topic}</a>
                 <div className="baiviet" style={{position: 'relative', maxWidth: '570px', paddingBottom: '11px'}}>
-                <iframe src='https://www.youtube.com/embed/n4y0hlQAO1U' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen title='video' width='520px' height='332px'/>
-                    <div className="title" style={{width: '570px'}}>Người Mỹ chi hàng trăm triệu USD mỗi năm cho việc đọc sách</div>
+                    <video width="520px" height="332px" controls autoPlay>
+                        <source src={VideoLink} type="video/mp4"></source>
+                    </video>
+                    <div className="title" style={{width: '570px'}}>{Video.title}</div>
                     <div className="menutitle" style={{font: 'normal normal 300 16px/18px Quicksand'}}>Vietnamnet . 6 phút trước</div>
                     
                 </div>

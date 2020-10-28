@@ -5,7 +5,9 @@ class MainNews extends Component {
     render() {
         return (
             <div className="MainNews">
-                <img src={this.props.img} alt="Main News Img"/>
+                <div className="zoom-img">
+                    <img src={this.props.img} alt="Main News Img"/>
+                </div>
                 <div style={{paddingTop: '16px', paddingBottom: '19px'}}>{this.props.title}</div>
             </div>
         )

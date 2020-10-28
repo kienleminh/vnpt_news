@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+a {
+    text-decoration: none;
+}
+
+a.box {
+    padding: 10px;
+    font-family: Quicksand;
+    border-radius: 17px;
+    display: inline;
+    margin-left: 25px;
+    /* unvisited link */
+}
+
+a.box:link {
+    color: #B1BAD0;
+}
+
+
+/* visited link */
+
+a.box:visited {
+    font: normal normal normal 16px/20px Quicksand;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #B1BAD0;
+    display: inline;
+}
+
+
+/* mouse over link */
+
+a.box:hover {
+    color: #FFFFFF;
+    font: normal normal normal 17px/24px Quicksand;
+    font-weight: bolder;
+    background-color: #5379F5;
+}
+
+
+/* selected link */
+
+a.box:active {
+    color: black;
+}
+
+a.title:visited {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+a.title:hover {
+    background-color: #5379F5;
+    color: #FFFFFF;
+}
+
+.button {
+    background-color: #ffffff;
+    border: 0px;
+}
+
+::placeholder {
+    color: #F0F2FD;
+}
+/****Blue Title***/
+
+.menutitlebox {
+    position: relative;
+    height: 46px;
+    width: 10px;
+    background-color: #5379F5;
+    border: 1px solid;
+    border-radius: 12px 0px;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 4px;
+}
+
+.BlueTitle {
+    display: flex;
+    position: relative;
+    height: 46px;
+    width: 645px;
+    margin: 0px;
+    font: normal normal normal 24px/34px Quicksand;
+    color: #5379F5;
+    text-align: left;
+    letter-spacing: 0px;
+    font-weight: bold;
+    margin-bottom: 36px;
+}
+
+/******Header******/
+
+.header {
+    width: 100%;
+    position: fixed;
+    margin: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    display: block;
+    z-index: 1;
+    background-color: #FFFFFF;
+    top: 0px;
+    //border-bottom: 1px solid #F0F2FD;
+    /*Searching*/
+    .searching {
+        margin: 0px auto;
+        margin-top: 17px;
+        padding: 0px;
+        max-width: 992px;
+        height: 67px;
+        display: block;
+        position: relative;
+        .headericon {
+            position: relative;
+            float: left;
+            max-width: 147px;
+            max-height: 32px;
+        }
+        .searchingbox {
+            position: relative;
+            float: right;
+            width: 270px;
+            height: 39px;
+            display: flex;
+            border: 1px solid #F0F2FD;
+            border-radius: 20px;
+            margin-right: 10px;
+            .searchingicon {
+                margin-left: 44px;
+                margin-top: 7px;
+            }
+        }
+    }
+    /*Menu*/
+    .menu {
+        position: relative;
+        margin: 0px auto;
+        max-width: 992px;
+        height: 34px;
+        display: flex;
+        .menubox {
+            position: relative;
+            margin: 0px 0px 0px 0px;
+            display: inline;
+        }
+    }
+}
+
+.extend {
+    width: 100%;
+    position: fixed;
+    margin: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    display: block;
+    z-index: 1;
+    background-color: #FFFFFF;
+    top: 121px;
+}
+.disappear {
+    visibility: hidden;
+}
+.appear {
+    visibility: visible;
+}

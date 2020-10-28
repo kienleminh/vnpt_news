@@ -9,7 +9,7 @@ function SummarizedNews(props) {
     return (
         <div className="subSummarized" style={{borderBottom: '0px'}}>
             <div className="subSummarized">
-                <BlueTitle title={props.extratitle} />
+                <BlueTitle title={props.extratitle} link="/readingnews"/>
                 <div className="VideoNews">
                     <img src={MoreNewsImg} alt="Video News Img" />
                     <div>{props.title}</div>

@@ -1,29 +1,35 @@
 import React from 'react';
 import 'component/css/Display.scss';
 
-function Signup(props) {
-    const [dis, setDis] = [props.dis, props.setDis];
-    return (
-    <div className={`${dis ? 'appear' : 'disappear'} dialogbackground`}>
-        <div className="dialog">
-            <button className="icondialog" onClick={() => setDis(!dis)}>X</button>
-            <div className="icondialog" >
-                <div >DIGILIFE</div>
-            </div>
-            <div className="content">Mời bạn đăng ký gói <br/>
-            <span >[Tên gói nội dung tương ứng]</span>
-                <br/>để trải nghiệm nội dung <br/>
-            <span >
-            <input type="button" value="Bỏ qua" onClick={() => setDis(!dis)}/>
-                <button >
-                <div >Đăng kí</div>
-                </button>
-            </span>
-                <div >Tham khảo các gói cước khác</div>
-            </div>
+class Signup extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { username: '' };
+  }
+  myChangeHandler = (event) => {
+    this.setState({username: event.target.value});
+  }
+  // var x = (window.screen.height -126)/2;
+  // () => {
+  //   document.getElementById("body").style.marginTop = x;
+  // }
+  render() {
+    return(
+      <>
+        <div className="body" style={{marginTop:'150px', marginLeft: 'auto'}}>
+        <form>
+        <h1>Hello {this.state.username}</h1>
+        <p>Enter your name:</p>
+        <input
+          type='text'
+          onChange={this.myChangeHandler}
+        />
+        </form>
         </div>
-    </div>
-    );
+      
+      </>
+    )
+    }
 
 }
 

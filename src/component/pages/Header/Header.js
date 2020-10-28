@@ -3,14 +3,28 @@ import HomeIcon from 'component/Figure/HomeIcon.png';
 import AccountIcon from 'component/Figure/account.svg';
 import SearchingIcon from 'component/Figure/SearchIcon.svg';
 import LikeIcon from 'component/Figure/LikeIcon.svg';
-import Signup from '../Body/Signup';
+import Signup from '../Body/SignupDia';
 import 'component/css/Display.scss';
-import {VID_NEWS} from '../../routes';
+import {READ_NEWS,VID_NEWS,AUD_NEWS} from '../../routes';
+import BlueTitle from 'component/pages/Body/BlueTitle';
 
 function Header() {
   const [dis, setDis] = useState(false);
-  console.log(dis);
-  if(!dis){
+  //const [ext, setExt] = useState(false);
+  const list = [
+    'Xã hội',
+    'Sức khoẻ',
+    'Giải trí',
+    'Thể thao',
+    'Bảng tin',
+    'Video',
+    'Văn hoá',
+    'Giáo dục',
+    'Audio',
+    'Xu hướng',
+    'Mới nhất',
+    'Khác'
+];
     return (
       <div className="header">
         <div className="searching">
@@ -32,29 +46,103 @@ function Header() {
           </div>
         </div>
         <div className="menu">
-          <span><a href={VID_NEWS} target="_self" style={{marginTop: '5px'}}><img src={LikeIcon} alt="Like Icon" /></a></span>
-          <span className="menubox"><a className="box" href={VID_NEWS} target="_self" id="menutitle">Xã hội</a></span>
-          <span className="menubox"><a className="box" href={VID_NEWS} target="_self" id="menutitle">Văn hoá</a></span>
-          <span className="menubox"><a className="box" href={VID_NEWS} target="_self" id="menutitle">Thể thao</a></span>
-          <span className="menubox"><a className="box" href={VID_NEWS} target="_self" id="menutitle">Giải trí</a></span>
-          <span className="menubox"><a className="box" href={VID_NEWS} target="_self" id="menutitle">Sức khoẻ</a></span>
-          <span className="menubox"><a className="box" href={VID_NEWS} target="_self" id="menutitle">Video</a></span>
-          <span className="menubox"><a className="box" href={VID_NEWS} target="_self" id="menutitle">Audio</a></span>
-          <span className="menubox"><a className="box" href={VID_NEWS} target="_self" id="menutitle">Giáo dục</a></span>
+          {/* <button onMouseOver={() => setExt(true)} style={{border: '0px', backgroundColor: '#FFFFFF'}}>
+            <img src={LikeIcon} alt="Like Icon" />
+          </button> */}
+          <div className="dropdown">
+            <button className="dropbtn"><img src={LikeIcon} alt="Like Icon" /></button>
+            <div className="dropdown-content">
+              <div style={{maxWidth:'992px'}}>
+                <div className="sub-dropdown">
+                {
+                      list.map((item, index) => {
+                          if(index<6){
+                              return (
+                                <a href="#" style={{maxWidth: '170px'}}>
+                                  <BlueTitle style={{maxWidth: '170px'}} key={index} title={item}/>
+                                </a>  
+                              );
+                          }
+                          return null;
+                      })
+                  }
+                </div>
+                <div className="sub-dropdown">
+                {
+                      list.map((item, index) => {
+                          if(index>=6){
+                              return (
+                                <a href="#" style={{maxWidth: '170px'}}>
+                                  <BlueTitle style={{maxWidth: '170px'}} key={index} title={item}/>
+                                </a>  
+                              );
+                          }
+                          return null;
+                      })
+                  }
+                </div>
+              </div>
+              {/* <div style={{display:'flex'}}>
+                  {
+                      list.map((item, index) => {
+                          if(index<6){
+                              return (
+                                <a style={{maxWidth: '160px'}}>
+                                  <BlueTitle style={{maxWidth: '160px'}} key={index} title={item}/>
+                                </a>  
+                              );
+                          }
+                          return null;
+                      })
+                  }
+              </div>
+              <div style={{display:'flex'}}>
+                  {
+                      list.map((item, index) => {
+                          if(index>=6){
+                              return (
+                                  <BlueTitle key={index} title={item}/>
+                              )
+                          }
+                          return null; 
+                      })
+                  }
+              </div> */}
+
+
+            </div>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Xã hội</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Văn hoá</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Thể thao</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Giải trí</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Sức khoẻ</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={VID_NEWS} target="_self" id="menutitle">Video</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={AUD_NEWS} target="_self" id="menutitle">Audio</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Giáo dục</a>
+          </div>
         </div>
+          <>
+            
+            <Signup dis={dis} setDis={setDis}/> 
+          </>
         </div>
         );
-
-  }else {
-    return(
-    <>
-      
-      <div className={`${dis ? 'appear' : 'disappear'} dialogbackground`}>
-        <Signup dis={dis} setDis={setDis}/> 
-      </div>
-      </>
-    );
-  }
 
 }
 

@@ -6,7 +6,7 @@ import './css/Display.scss';
 function Left(props) {
     return (
         <>
-            <BlueTitle title={props.bigtitle} />
+            <BlueTitle title={props.bigtitle} link="/videonews" />
             <div className="VideoNews">
                 <VideoNews title={props.title} img={props.img} time={props.time}/>
                 <VideoNews />

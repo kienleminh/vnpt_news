@@ -5,9 +5,15 @@ import 'component/css/Display.scss';
 function ImgNews(props) {
     return(
         <>
-            <img src={TetImg} alt="Tet Img" style={{marginBottom: '16px'}} />
-            <img src={TetImg} alt="Tet Img" style={{marginBottom: '16px'}} />
-            <img src={TetImg} alt="Tet Img" style={{marginBottom: '16px'}} />
+            <div className="zoom-img">
+                <img src={TetImg} alt="Tet Img"/>
+            </div>
+            <div className="zoom-img">
+                <img src={TetImg} alt="Tet Img"/>
+            </div>
+            <div className="zoom-img">
+                <img src={TetImg} alt="Tet Img"/>
+            </div>
 
         </>
     )
