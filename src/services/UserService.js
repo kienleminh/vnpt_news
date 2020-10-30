@@ -1,12 +1,12 @@
 import { postRequest } from 'utils/http';
 
-const BACKEND_API = 'https://myvnpt-bk.vnptvas.com/mapi/services';
+const BACKEND_API = 'https://api.digitoday.vn/api';
 
 const baseURL = BACKEND_API;
 
 export const UserService = {
   login: function (data, successCallback, failCallback) {
-    const URL = `${baseURL}/authen_msisdn`;
+    const URL = `${baseURL}/getRelatedList`;
     return postRequest(URL, data, {}, successCallback, failCallback);
   },
 

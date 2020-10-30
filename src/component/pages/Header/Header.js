@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import HomeIcon from 'component/Figure/HomeIcon.png';
-import AccountIcon from 'component/Figure/account.svg';
+//import AccountIcon from 'component/Figure/account.svg';
 import SearchingIcon from 'component/Figure/SearchIcon.svg';
 import LikeIcon from 'component/Figure/LikeIcon.svg';
 import Signup from '../Body/SignupDia';
@@ -31,7 +31,11 @@ function Header() {
           <a className="icon" href="/" target="_parent"><img src={HomeIcon} alt="Home Icon" /></a>
           <div style={{float: 'right', height: '36px', width: '36px'}}>
           <button style={{border: '0px', backgroundColor: '#FFFFFF'}}>
-            <img src={AccountIcon} alt="Account Icon" onClick={() => setDis(!dis)} />
+            {/* <img src={AccountIcon} alt="Account Icon" onClick={() => setDis(!dis)} /> */}
+            <>
+            
+            <Signup dis={dis} setDis={setDis}/> 
+          </>
           </button> 
           </div>
           <div className="searchingbox">
@@ -137,10 +141,10 @@ function Header() {
             <a className="box" href={READ_NEWS} target="_self" id="menutitle">Giáo dục</a>
           </div>
         </div>
-          <>
+          {/* <>
             
             <Signup dis={dis} setDis={setDis}/> 
-          </>
+          </> */}
         </div>
         );
 

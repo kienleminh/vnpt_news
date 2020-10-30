@@ -1,5 +1,6 @@
 import React from 'react';
 import 'component/css/Display.scss';
+import {UserService} from 'services/UserService';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -9,10 +10,22 @@ class Signup extends React.Component {
   myChangeHandler = (event) => {
     this.setState({username: event.target.value});
   }
-  // var x = (window.screen.height -126)/2;
-  // () => {
-  //   document.getElementById("body").style.marginTop = x;
-  // }
+
+  handleRegister = () => {
+    const data = {
+      "id": 56818,
+      "cateId": [
+          34
+      ],
+      "contentType": 0,
+      "pageSize": 10
+  };
+
+    UserService.login(data, res => {
+      console.log(res);
+    });
+  }
+  
   render() {
     return(
       <>
@@ -25,6 +38,7 @@ class Signup extends React.Component {
           onChange={this.myChangeHandler}
         />
         </form>
+        <button onClick={this.handleRegister}>Dang ky</button>
         </div>
       
       </>
