@@ -2,37 +2,65 @@ import React from 'react';
 import NewImg from 'component/Figure/NewImg.png';
 import ExtraNews from './ExtraNews';
 import ExtraNewsImg from 'component/Figure/ExtraNewsImg.png';
+import {MainNewsService} from 'services/MainNewsService';
 import 'component/css/Display.scss';
 
 
-function BodyReading() {
-    var ReadingNews = {
-        topic: 'Xã hội',
-        title: 'Người Mỹ chi hàng trăm triệu USD mỗi năm cho việc đọc sách',
-        img: NewImg,
-        time: 6,
-        
-    }
-    var Extra = {
-        title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong tỏa trong thời gian dài',
-        time: 6,
-        img: ExtraNewsImg,
-        extratitle: 'Tin cùng chủ đề',
-    }
-    var Extra2 = {
-        title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong tỏa trong thời gian dài',
-        time: 6,
-        img: ExtraNewsImg,
-        extratitle: 'Xem nhiều',
-    }
+class BodyReading extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            username: '',
+            arr: [],
+        };
+      }
+      myChangeHandler = (event) => {
+        this.setState({username: event.target.value});
+      }
+    
+      componentDidMount = () => {
+        const data = {
+            "id": 57611,
+            "cateId": [
+                31
+            ],
+            "tags": [
+                "Thanh Xuân",
+                "Thanh Chương",
+                "cô lập",
+                "mất điện",
+                "nước sạch",
+                "lương thực"
+            ],
+            "contentType": 0,
+            "pageSize": 10
+        };
+        MainNewsService.getnews(data, res => {
+          console.log(res);
+          console.log(res.resultInfo.message);
+          this.setState({
+              username: res.resultInfo.message,
+              arr: res.data
+            });
+          console.log(this.state.arr);
+          console.log(this.state.arr[0].groupName);
+        });
+      }
+    
+    
+    render(){
     return(
         <div className="body">
             <div className="SubNews">
                 <div className="topic">
-                    {ReadingNews.topic}
+                    {/* {
+                        if(this.state.arr[0].length == 0){
+                            return null;
+                        }
+                    } */}
                 </div>
-                <div className="title">{ReadingNews.title}</div>
-                <div className="menutitle">Vietnamnet . {ReadingNews.time} phút trước</div>
+                <div className="title">{"ReadingNews.title"}</div>
+                <div className="menutitle">Vietnamnet . {"ReadingNews.time"} phút trước</div>
                 <div className="baiviet" style={{position: 'relative', maxWidth: '570px'}}>
                     <div className="trichdan">Chỉ riêng ở Mỹ, hàng trăm triệu cuốn sách in được xuất bản mỗi năm, cùng với nền tảng 
                     hiện đại như sách điện tử và sách nói đã mang về hàng tỷ USD cho các nhà xuất bản.</div>
@@ -43,7 +71,7 @@ function BodyReading() {
                     trong khi doanh thu từ việc xuất bản sách nói trên toàn cầu đạt mức 12,3 tỷ USD. <br/>Trang Statista 
                     cho biết hệ thống các cửa hàng sách ở Mỹ trung bình thu về khoảng 10 tỷ USD mỗi năm, chưa kể đến chuỗi 
                     thương mại điện tử khổng lồ như Amazon cũng góp phần cạnh tranh mạnh trong ngành.
-                        <div><img src={ReadingNews.img} alt="Reading News"/></div>
+                        <div><img src={"ReadingNews.img"} alt="Reading News"/></div>
                     Bên trong một tiệm sách của Amazon tại Mỹ. Ảnh: Forbes. <br/>Tuy nhiên, cùng với sự phát triển của công nghệ, 
                     thị hiếu của bạn đọc đang dần hướng tới các nền tảng đọc sách trực tuyến thay vì mua sắm tại các hiệu sách truyền 
                     thống. <br/><br/>Barnes & Noble, một trong những nhà bán sách lớn nhất ở Mỹ đã chứng kiến ​​doanh thu giảm liên tục 
@@ -58,11 +86,12 @@ function BodyReading() {
                     cho mỗi sinh viên.</div>
                 </div>
                 <div style={{marginTop: '50px'}}/>
-                <ExtraNews title={Extra.title} img={Extra.img} time={Extra.time} extratitle={Extra.extratitle}/>
-                <ExtraNews title={Extra2.title} img={Extra2.img} time={Extra2.time} extratitle={Extra2.extratitle}/>
+                <ExtraNews title={"Extra.title"} img={"Extra.img"} time={"Extra.time"} extratitle={"Extra.extratitle"}/>
+                <ExtraNews title={"Extra2.title"} img={"Extra2.img"} time={"Extra2.time"} extratitle={"Extra2.extratitle"}/>
             </div>
         </div>
     )
+    }
 }
 
 export default BodyReading;
