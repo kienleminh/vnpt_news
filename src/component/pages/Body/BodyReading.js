@@ -43,7 +43,7 @@ class BodyReading extends React.Component {
               arr: res.data
             });
           console.log(this.state.arr);
-          console.log(this.state.arr[0].groupName);
+          console.log(this.state.arr[0].viewLink);
         });
       }
     
@@ -51,6 +51,7 @@ class BodyReading extends React.Component {
     render(){
     return(
         <div className="body">
+            {/* <iframe src={this.state.arr[0].viewLink}/> */}
             <div className="SubNews">
                 <div className="topic">
                     {/* {
