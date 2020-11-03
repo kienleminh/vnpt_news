@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import NewImg from 'component/Figure/NewImg.png';
 import ExtraNews from './ExtraNews';
 import ExtraNewsImg from 'component/Figure/ExtraNewsImg.png';
 import {MainNewsService} from 'services/MainNewsService';
+import BlueTitle from './BlueTitle';
 import 'component/css/Display.scss';
 
 
@@ -10,56 +11,52 @@ class BodyReading extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            username: '',
+            title: '',
             arr: [],
+            username: [],
+            des: [],
+            extranews: '',
         };
-      }
-      myChangeHandler = (event) => {
-        this.setState({username: event.target.value});
-      }
-    
-      componentDidMount = () => {
+    }
+    putData(item, index) {
+        console.log(index);
+        console.log(item);
+        console.log(item.title);
+        document.getElementById("demo").innerHTML = item.title;
+        console.log(item.cateName[item.cateId[item.cateId.length - 1]]);
+        document.getElementsByTagName("BLUETITLE").title = "item.title";
+        console.log(document.getElementsByTagName("BLUETITLE").title);
+    }
+    getData(data) {
+        MainNewsService.getnews(data, res => {
+            this.setState({
+                title: res.data[0].cateName[res.data[0].cateId[res.data[0].cateId.length-1]],
+                arr: res.data,
+                des1: res.data[0].description,
+            });
+            this.state.arr.map((item, index) => this.putData(item, index));
+        });
+    }
+    componentDidMount() {
         const data = {
             "id": 57611,
             "cateId": [
                 31
             ],
-            "tags": [
-                "Thanh Xuân",
-                "Thanh Chương",
-                "cô lập",
-                "mất điện",
-                "nước sạch",
-                "lương thực"
-            ],
             "contentType": 0,
             "pageSize": 10
         };
-        MainNewsService.getnews(data, res => {
-          console.log(res);
-          console.log(res.resultInfo.message);
-          this.setState({
-              username: res.resultInfo.message,
-              arr: res.data
-            });
-          console.log(this.state.arr);
-          console.log(this.state.arr[0].viewLink);
-        });
-      }
-    
-    
+        this.getData(data);
+    }
     render(){
+        console.log('render');
     return(
         <div className="body">
-            {/* <iframe src={this.state.arr[0].viewLink}/> */}
             <div className="SubNews">
                 <div className="topic">
-                    {/* {
-                        if(this.state.arr[0].length == 0){
-                            return null;
-                        }
-                    } */}
+                    {this.state.title}
                 </div>
+                <div id="demo"></div>
                 <div className="title">{"ReadingNews.title"}</div>
                 <div className="menutitle">Vietnamnet . {"ReadingNews.time"} phút trước</div>
                 <div className="baiviet" style={{position: 'relative', maxWidth: '570px'}}>
@@ -87,12 +84,13 @@ class BodyReading extends React.Component {
                     cho mỗi sinh viên.</div>
                 </div>
                 <div style={{marginTop: '50px'}}/>
-                <ExtraNews title={"Extra.title"} img={"Extra.img"} time={"Extra.time"} extratitle={"Extra.extratitle"}/>
-                <ExtraNews title={"Extra2.title"} img={"Extra2.img"} time={"Extra2.time"} extratitle={"Extra2.extratitle"}/>
+                <BlueTitle title='a'></BlueTitle>
+                <ExtraNews title={"item.title"} img={"item.img1"} time={"item.newsId"} extratitle={"item.cateName[item.data[index].cateId[item.data[index].cateId.length-1]]"}/>
             </div>
         </div>
     )
     }
 }
+
 
 export default BodyReading;
