@@ -2,3 +2,5 @@ https://xd.adobe.com/view/62d1640a-17a7-4af7-4d85-56d729264427-14e0/specs/?fbcli
 https://docs.google.com/document/d/10FVkPo119U9xJ43AR3TOyrv7H2Kg7GEKPMaJeNyAy9M/edit#
 https://hocwebchuan.com/tutorial/reactjs/reactjs_mysql.php#anchor01
 "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --user-data-dir="C:/ChromeDevSession"
+https://www.freecodecamp.org/news/8-reactjs-project-ideas-to-start-learning-by-doing/?fbclid=IwAR164WW2lgCgOndLACR_6xOP8XdsPptVkOcTU7EkOoUCTaLWJ6a5aRotMkg
+https://viblo.asia/p/tim-hieu-setstate-trong-reactjs-07LKXpNPKV4

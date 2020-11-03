@@ -16,26 +16,34 @@ class BodyReading extends React.Component {
             username: [],
             des: [],
             extranews: '',
+            txt: "",
         };
     }
-    putData(item, index) {
-        console.log(index);
-        console.log(item);
-        console.log(item.title);
-        document.getElementById("demo").innerHTML = item.title;
-        console.log(item.cateName[item.cateId[item.cateId.length - 1]]);
-        document.getElementsByTagName("BLUETITLE").title = "item.title";
-        console.log(document.getElementsByTagName("BLUETITLE").title);
-    }
+    // putData(item, index) {
+    //     console.log(index);
+    //     console.log(item);
+    //     console.log(item.title);
+    //     document.getElementById("demo").innerHTML = item.title;
+    //     console.log(item.cateName[item.cateId[item.cateId.length - 1]]);
+    //     document.getElementsByTagName("BLUETITLE").title = "item.title";
+    //     console.log(document.getElementsByTagName("BLUETITLE").title);
+    // }
     getData(data) {
         MainNewsService.getnews(data, res => {
             this.setState({
                 title: res.data[0].cateName[res.data[0].cateId[res.data[0].cateId.length-1]],
                 arr: res.data,
-                des1: res.data[0].description,
+                des: res.data[0].description,
+                // this.state.arr
             });
-            this.state.arr.map((item, index) => this.putData(item, index));
+            // this.state.arr.map((item, index) => this.putData(item, index));
+            this.state.arr.forEach(this.putData);
+            document.getElementById("extra").innerHTML = this.state.txt;
         });
+    }
+    putData(item, index, arr){
+        console.log("okie");
+        this.state.txt = this.state.txt + "<ExtraNews title={"+item.title+"} img={"+item.img1+"} time={"+item.newsId+"} extratitle={"+item.sourceName+"}/>";
     }
     componentDidMount() {
         const data = {
@@ -84,8 +92,8 @@ class BodyReading extends React.Component {
                     cho mỗi sinh viên.</div>
                 </div>
                 <div style={{marginTop: '50px'}}/>
-                <BlueTitle title='a'></BlueTitle>
-                <ExtraNews title={"item.title"} img={"item.img1"} time={"item.newsId"} extratitle={"item.cateName[item.data[index].cateId[item.data[index].cateId.length-1]]"}/>
+                <div id="extra"></div>
+                {/* <ExtraNews title={"item.title"} img={"item.img1"} time={"item.newsId"} extratitle={"item"}/> */}
             </div>
         </div>
     )
