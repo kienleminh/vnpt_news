@@ -53,8 +53,8 @@ function transformConfig(config, data) {
 
   const authorization = sha256(md5Hex(`${body}#${secureCode}@${requestTime}!${Channel}`)).toString().toLowerCase();
   const headers = {
-    'Content-Type': 'application/x-www-form-urlencoded',
-    // 'Content-Type': 'application/json',
+    // 'Content-Type': 'application/x-www-form-urlencoded',
+    'Content-Type': 'application/json;charset=UTF-8',
     RequestTime: requestTime,	
     Authorization: authorization,
     Channel,

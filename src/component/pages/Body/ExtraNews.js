@@ -5,40 +5,43 @@ import 'component/css/Display.scss';
 class ExtraNews extends React.PureComponent {
     
     render() {
+        console.log(this.props.item);
+        const {item} = this.props;
         return (
             <div>
-                <BlueTitle title={this.props.extratitle} link="/videonews" />
+    
+                {/* <BlueTitle title={item.extratitle} link="/videonews" /> */}
                 <a href='/readingnews' className="ExtraNews">
                     <div className="zoom-img">
                         <div style={{overflow: 'hidden', borderRadius: '10px'}}>
-                            <img src={this.props.img} alt="Extra News" />
+                            <img src={item.img1} alt="Extra News" />
                         </div>
                     </div>
                     <div style={{paddingLeft:'16px'}}>
-                        <div>{this.props.title}</div>
-                        <div className="Status">Vietnamnet . {this.props.time} phút trước</div>
+                        <div>{item.title}</div>
+                        <div className="Status">Vietnamnet . {item.newsId} phút trước</div>
                     </div>
                 </a>
                 <a href='/readingnews' className="ExtraNews">
                     <div className="zoom-img">
                         <div style={{overflow: 'hidden', borderRadius: '10px'}}>
-                            <img src={this.props.img} alt="Extra News" />
+                            <img src={item.img1} alt="Extra News" />
                         </div>
                     </div>
                     <div style={{paddingLeft:'16px'}}>
-                        <div>{this.props.title}</div>
-                        <div className="Status">Vietnamnet . {this.props.time} phút trước</div>
+                        <div>{item.title}</div>
+                        <div className="Status">Vietnamnet . {item.newsId} phút trước</div>
                     </div>
                 </a>
                 <a href='/readingnews' className="ExtraNews">
                     <div className="zoom-img">
                         <div style={{overflow: 'hidden', borderRadius: '10px'}}>
-                            <img src={this.props.img} alt="Extra News" />
+                            <img src={item.img1} alt="Extra News" />
                         </div>
                     </div>
                     <div style={{paddingLeft:'16px'}}>
-                        <div>{this.props.title}</div>
-                        <div className="Status">Vietnamnet . {this.props.time} phút trước</div>
+                        <div>{item.title}</div>
+                        <div className="Status">Vietnamnet . {item.newsId} phút trước</div>
                     </div>
                 </a>
                 
