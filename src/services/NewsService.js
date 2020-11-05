@@ -150,5 +150,6 @@ export const NewsService = {
   getHashTag,
   addHistory,
   delHistory,
+  convertedTime,
 };
 

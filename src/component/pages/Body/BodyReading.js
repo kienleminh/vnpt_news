@@ -1,23 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import NewImg from 'component/Figure/NewImg.png';
+import React from 'react';
 import ExtraNews from './ExtraNews';
-import ExtraNewsImg from 'component/Figure/ExtraNewsImg.png';
 import {MainNewsService} from 'services/MainNewsService';
 import BlueTitle from './BlueTitle';
 import 'component/css/Display.scss';
 import {NewsService} from 'services/NewsService';
-import {data} from 'jquery';
-
-
 class BodyReading extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
             title: '',
             content: '',
+            field: '',
             NewsById: [],
             RelatedList: [],
             Comment: [],
+            Trans: [],
+            a: '',
         };
     }
     componentDidMount() {
@@ -27,9 +25,9 @@ class BodyReading extends React.Component {
     }
     getRelatedList() {
         const params = {
-            "id": 57611,
+            "id": 59069,
             "cateId": [
-                31
+                34
             ],
             "contentType": 0,
             "pageSize": 10
@@ -43,13 +41,15 @@ class BodyReading extends React.Component {
     getNewsDetail() {
         const params = {
             id: 59069,
-          };
-          NewsService.getNewsById({ params }, res => {
-              this.setState({
-                  NewsById: res.data[0],
-                  title: res.data[0].cateName[res.data[0].cateId[0]],
-                  content: res.data[0].content,
-              })
+        };
+        NewsService.getNewsById({ params }, res => {
+            this.setState({
+                NewsById: res.data[0],
+                field: res.data[0].cateName[res.data[0].cateId[0]],
+                content: res.data[0].content,
+                title: res.data[0].title,
+            })
+            console.log("den day roi")
         });
     }
     getComment() {
@@ -65,37 +65,33 @@ class BodyReading extends React.Component {
     renderRelatedList = () => {
         let RelatedList = this.state.RelatedList.map((data, index) =>
             <>
-                <div>
-                    {data.title} 
-                </div>
-                <div>
-                    {data.status} 
-                </div>
-                <div>
-                    {data.sourceName} 
-                </div>
-                <div>
-                    {data.newsId} 
-                </div>
+                <ExtraNews item={data}></ExtraNews>
 
             </>
         );
         return RelatedList;
+    }
+    createInnerHTML() {
+        return {__html: this.state.content};
+    }
+    myContent() {
+        return <div dangerouslySetInnerHTML={this.createInnerHTML()} />;
     }
     render(){
     return(
         <div className="body">
             <div className="SubNews">
                 <div className="topic">
-                    {this.state.title}
+                    {this.state.field}
                 </div>
-                <div id="demo"></div>
-                <div className="title">{"ReadingNews.title"}</div>
-                <div className="menutitle">Vietnamnet . {"ReadingNews.time"} phút trước</div>
+                <div className="title">{this.state.title}</div>
+                <div className="menutitle">{this.state.NewsById.sourceName} . 
+                {NewsService.convertedTime(this.state.NewsById.createTime)} </div>
                 <div className="baiviet" style={{position: 'relative', maxWidth: '570px'}}>
-                    {this.state.content}
+                    {this.myContent()}
                 </div>
                 <div style={{marginTop: '50px'}}>
+                    <BlueTitle title="Tin chủ đề" />
                     {this.renderRelatedList()}
                 </div>
             </div>

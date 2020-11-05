@@ -1,8 +1,7 @@
 import React, { useState} from 'react';
 import HomeIcon from 'component/Figure/HomeIcon.png';
-//import AccountIcon from 'component/Figure/account.svg';
 import SearchingIcon from 'component/Figure/SearchIcon.svg';
-import LikeIcon from 'component/Figure/LikeIcon.svg';
+import LikeIcon from 'component/Figure/menu.svg';
 import Signup from '../Body/SignupDia';
 import 'component/css/Display.scss';
 import {READ_NEWS,VID_NEWS,AUD_NEWS} from '../../routes';
@@ -10,7 +9,6 @@ import BlueTitle from 'component/pages/Body/BlueTitle';
 
 function Header() {
   const [dis, setDis] = useState(false);
-  //const [ext, setExt] = useState(false);
   const list = [
     'Xã hội',
     'Sức khoẻ',
@@ -24,14 +22,32 @@ function Header() {
     'Xu hướng',
     'Mới nhất',
     'Khác'
-];
+  ];
+  const listMenu = [
+    'Xã hội',
+    'Kinh tế',
+    'Đời sống',
+    'Thế giới',
+    'Giải trí',
+    'Thể thao',
+    'Công nghệ',
+    'Video',
+    'Tin ảnh'
+  ]
+  const renderMenu = () => {
+    let menu = listMenu.map((data, index) =>
+        <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">{data}</a>
+        </div>
+    );
+    return menu;
+}
     return (
       <div className="header">
         <div className="searching">
           <a className="icon" href="/" target="_parent"><img src={HomeIcon} alt="Home Icon" /></a>
           <div style={{float: 'right', height: '36px', width: '36px'}}>
           <button style={{border: '0px', backgroundColor: '#FFFFFF'}}>
-            {/* <img src={AccountIcon} alt="Account Icon" onClick={() => setDis(!dis)} /> */}
             <>
             
             <Signup dis={dis} setDis={setDis}/> 
@@ -50,9 +66,6 @@ function Header() {
           </div>
         </div>
         <div className="menu">
-          {/* <button onMouseOver={() => setExt(true)} style={{border: '0px', backgroundColor: '#FFFFFF'}}>
-            <img src={LikeIcon} alt="Like Icon" />
-          </button> */}
           <div className="dropdown">
             <button className="dropbtn"><img src={LikeIcon} alt="Like Icon" /></button>
             <div className="dropdown-content">
@@ -86,65 +99,11 @@ function Header() {
                   }
                 </div>
               </div>
-              {/* <div style={{display:'flex'}}>
-                  {
-                      list.map((item, index) => {
-                          if(index<6){
-                              return (
-                                <a style={{maxWidth: '160px'}}>
-                                  <BlueTitle style={{maxWidth: '160px'}} key={index} title={item}/>
-                                </a>  
-                              );
-                          }
-                          return null;
-                      })
-                  }
-              </div>
-              <div style={{display:'flex'}}>
-                  {
-                      list.map((item, index) => {
-                          if(index>=6){
-                              return (
-                                  <BlueTitle key={index} title={item}/>
-                              )
-                          }
-                          return null; 
-                      })
-                  }
-              </div> */}
-
-
             </div>
           </div>
-          <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Xã hội</a>
-          </div>
-          <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Văn hoá</a>
-          </div>
-          <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Thể thao</a>
-          </div>
-          <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Giải trí</a>
-          </div>
-          <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Sức khoẻ</a>
-          </div>
-          <div className="menubox">
-            <a className="box" href={VID_NEWS} target="_self" id="menutitle">Video</a>
-          </div>
-          <div className="menubox">
-            <a className="box" href={AUD_NEWS} target="_self" id="menutitle">Audio</a>
-          </div>
-          <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Giáo dục</a>
-          </div>
+          {renderMenu()}
+          
         </div>
-          {/* <>
-            
-            <Signup dis={dis} setDis={setDis}/> 
-          </> */}
         </div>
         );
 

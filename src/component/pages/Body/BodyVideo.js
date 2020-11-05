@@ -1,43 +1,115 @@
 import React from 'react';
 import ExtraNews from './ExtraNews';
-import ExtraNewsImg from 'component/Figure/ExtraNewsImg.png';
-import 'component/css/Display.scss';
-import {VideoLink} from 'component/Video';
+import './BodyVideo.scss';
+import {MainNewsService, checkType} from 'services/MainNewsService';
+import {NewsService} from 'services/NewsService';
+import BlueTitle from './BlueTitle';
+class BodyVideo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            title: '',
+            content: '',
+            field: '',
+            NewsById: [],
+            RelatedList: [],
+            Comment: [],
+            Trans: [],
+            a: '',
+        };
+    }
+    componentDidMount() {
+        this.getRelatedList();
+        this.getNewsDetail();
+        this.getComment();
+    }
+    getRelatedList() {
+        const params = {
+            "id": 59598,
+            "cateId": [
+                36
+            ],
+            "tags": [
+                "Video bóng đá",
+                "Video trận đấu",
+                "Điểm tin",
+                "Real Madrid",
+                "Mbappe"
+            ],
+            "contentType": 1,
+            "pageSize": 10
+        };
+        MainNewsService.getnews(params, res => {
+            this.setState({
+                RelatedList: res.data,
+            })
+        });
+    }
+    getNewsDetail() {
+        const params = {
+            id: 59598,
+        };
+        NewsService.getNewsById({ params }, res => {
+            this.setState({
+                NewsById: res.data[0],
+                field: res.data[0].cateName[res.data[0].cateId[0]],
+                content: res.data[0].content,
+                title: res.data[0].title,
+            })
+            console.log("den day roi");
+            if(res.data[0].contentType===0){
+                this.setState({
+                    field: res.data[0].cateName[res.data[0].cateId[0]]
+                })
+            } else {
+                this.setState({
+                    field: checkType(res.data[0].contentType)
+                })
+            }
+        });
+    }
+    getComment() {
+        const params = {
+            id: 59069,
+            pageSize: 2,
+        };
+        NewsService.getCommentList({params}, res => {
+            this.setState({
+            })
+        })
+    }
+    renderRelatedList = () => {
+        let RelatedList = this.state.RelatedList.map((data, index) =>
+            <>
+                <ExtraNews item={data}></ExtraNews>
 
-function BodyVideo() {
-    const Video = {
-        topic: 'Video',
-        title: 'Người Mỹ chi hàng trăm triệu USD mỗi năm cho việc đọc sách',
+            </>
+        );
+        return RelatedList;
     }
-    var Extra = {
-        title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong tỏa trong thời gian dài',
-        time: 6,
-        img: ExtraNewsImg,
-        extratitle: 'Tin cùng chủ đề',
-    }
-    var Extra2 = {
-        title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong tỏa trong thời gian dài',
-        time: 6,
-        img: ExtraNewsImg,
-        extratitle: 'Xem nhiều',
-    }
+    render(){
     return (
         <div className="body">
             <div className="SubNews">
-                <a className="topic" href="/videonews" >{Video.topic}</a>
-                <div className="baiviet" style={{position: 'relative', maxWidth: '570px', paddingBottom: '11px'}}>
-                    <video width="520px" height="332px" controls autoPlay>
-                        <source src={VideoLink} type="video/mp4"></source>
-                    </video>
-                    <div className="title" style={{width: '570px'}}>{Video.title}</div>
-                    <div className="menutitle" style={{font: 'normal normal 300 16px/18px Quicksand'}}>Vietnamnet . 6 phút trước</div>
-                    
+                <div className="topic">
+                    {this.state.field}
                 </div>
-                <ExtraNews title={Extra.title} img={Extra.img} time={Extra.time} extratitle={Extra.extratitle}/>
-                <ExtraNews title={Extra2.title} img={Extra2.img} time={Extra2.time} extratitle={Extra2.extratitle}/>
+                <div className="baiviet">
+                    <div className="video" >
+                        <video poster={this.state.NewsById.img1} src={this.state.content} type="video/mp4" autoplay="" controls=""></video>
+                    </div>
+                    <h1>
+                        {this.state.title}
+                    </h1>
+                    <div className="menutitle">{this.state.NewsById.sourceName} . {NewsService.convertedTime(this.state.NewsById.createTime)} </div>
+                    <div style={{marginTop: '50px'}}>
+                    <BlueTitle title="Tin chủ đề" />
+                    {this.renderRelatedList()}
+                    </div>
+                </div>
             </div>
         </div>
-    )
+    )}
 }
 
 export default BodyVideo;
