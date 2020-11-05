@@ -8,14 +8,15 @@ import SummarizedNews from './SummarizedNews';
 import MoreNewsImg from 'component/Figure/MoreNewsImg.png';
 import {VideoLink} from 'component/Video';
 import 'component/css/Display.scss';
+import BlueTitle from './BlueTitle';
 
 
 class BodyHome extends Component {
     render(){
     var News = {
         title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong toả trong thời gian dài',
-        time: '6',
-        img: ExtraNewsImg,
+        newsId: '6',
+        img1: ExtraNewsImg,
     };
     const Videos = {
         title: 'Chính phủ họp bàn phương án cách ly xã hội sau 15/4',
@@ -34,11 +35,13 @@ class BodyHome extends Component {
                     <a href="/readingnews">
                     <MainNews title={News.title} img={MainNewsImg} />
                     </a>
-                    <ExtraNews title={News.title} img={News.img} time={News.time} extratitle="Xu hướng"/>
-                    <ExtraNews title={News.title} img={News.img} time={News.time} extratitle="Mới nhất"/>
-                    <ExtraNews title={News.title} img={News.img} time={News.time} extratitle="Xã hội"/>
-                    <ExtraNews title={News.title} img={News.img} time={News.time} extratitle="Sức khoẻ"/>
-                    <ExtraNews title={News.title} img={News.img} time={News.time} extratitle="Giáo dục"/>
+                    <BlueTitle title="Xu hướng"/>
+                    <ExtraNews item={News}/>
+                    <BlueTitle title="Mới nhất"/>
+                    <ExtraNews item={News}/>
+                    <ExtraNews item={News} extratitle="Xã hội"/>
+                    <ExtraNews item={News} extratitle="Sức khoẻ"/>
+                    <ExtraNews item={News} extratitle="Giáo dục"/>
                     
                 </div>
                 <div className="Right">

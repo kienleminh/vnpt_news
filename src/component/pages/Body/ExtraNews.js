@@ -10,7 +10,7 @@ class ExtraNews extends React.PureComponent {
         return (
             <div>
     
-                {/* <BlueTitle title={item.extratitle} link="/videonews" /> */}
+                {/* <BlueTitle title={this.props} link="/videonews" /> */}
                 <a href='/readingnews' className="ExtraNews">
                     <div className="zoom-img">
                         <div style={{overflow: 'hidden', borderRadius: '10px'}}>

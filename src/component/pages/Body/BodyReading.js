@@ -20,11 +20,11 @@ class BodyReading extends React.Component {
             Comment: [],
         };
     }
-    // componentDidMount() {
-    //     this.getRelatedList();
-    //     this.getNewsDetail();
-    //     this.getComment();
-    // }
+    componentDidMount() {
+        this.getRelatedList();
+        this.getNewsDetail();
+        this.getComment();
+    }
     getRelatedList() {
         const params = {
             "id": 57611,
@@ -38,10 +38,6 @@ class BodyReading extends React.Component {
             this.setState({
                 RelatedList: res.data,
             })
-            console.log("Related List");
-            console.log(this.state.RelatedList);
-            console.log(this.state.RelatedList[0].sourceName);
-            console.log("getData");
         });
     }
     getNewsDetail() {
@@ -49,17 +45,11 @@ class BodyReading extends React.Component {
             id: 59069,
           };
           NewsService.getNewsById({ params }, res => {
-              console.log(res.data[0]);
               this.setState({
                   NewsById: res.data[0],
                   title: res.data[0].cateName[res.data[0].cateId[0]],
                   content: res.data[0].content,
               })
-            console.log("News By Id");
-            console.log(this.state.content);
-            console.log("getNewsDetail");
-
-            console.log(this.state.title);
         });
     }
     getComment() {
@@ -67,35 +57,32 @@ class BodyReading extends React.Component {
             id: 59069,
             pageSize: 2,
         };
-        console.log("getComment");
         NewsService.getCommentList({params}, res => {
-            // console.log(res);
             this.setState({
             })
         })
     }
-    renderNews = () => {
-        let Comment = this.state.Comment.map((data, index) =>
+    renderRelatedList = () => {
+        let RelatedList = this.state.RelatedList.map((data, index) =>
             <>
                 <div>
-                    {data.id} 
+                    {data.title} 
                 </div>
                 <div>
-                    {data.name} 
+                    {data.status} 
                 </div>
                 <div>
-                    {data.email} 
+                    {data.sourceName} 
                 </div>
                 <div>
-                    {data.website} 
+                    {data.newsId} 
                 </div>
 
             </>
         );
-        return Comment;
+        return RelatedList;
     }
     render(){
-        console.log('render');
     return(
         <div className="body">
             <div className="SubNews">
@@ -108,12 +95,12 @@ class BodyReading extends React.Component {
                 <div className="baiviet" style={{position: 'relative', maxWidth: '570px'}}>
                     {this.state.content}
                 </div>
-                <div style={{marginTop: '50px'}}></div>
-                {this.renderUsers()}
+                <div style={{marginTop: '50px'}}>
+                    {this.renderRelatedList()}
+                </div>
             </div>
         </div>
     )
     }
 }
-
 export default BodyReading;
