@@ -66,7 +66,6 @@ class BodyReading extends React.Component {
         let RelatedList = this.state.RelatedList.map((data, index) =>
             <>
                 <ExtraNews item={data}></ExtraNews>
-
             </>
         );
         return RelatedList;
@@ -85,9 +84,8 @@ class BodyReading extends React.Component {
                     {this.state.field}
                 </div>
                 <div className="title">{this.state.title}</div>
-                <div className="menutitle">{this.state.NewsById.sourceName} . 
-                {NewsService.convertedTime(this.state.NewsById.createTime)} </div>
-                <div className="baiviet" style={{position: 'relative', maxWidth: '570px'}}>
+                <div className="menutitle">{this.state.NewsById.sourceName} . {NewsService.convertedTime(this.state.NewsById.createTime)} </div>
+                <div className="baiviet">
                     {this.myContent()}
                 </div>
                 <div style={{marginTop: '50px'}}>

@@ -393,6 +393,14 @@ a.title:hover {
     .SubNews {
         position: relative;
         margin: 29px 84px;
+        img {
+            width: 680px;
+            height: 357px;
+        }
+        .logo {
+            width: 92px;
+            height: 21px;
+        }
         .topic {
             text-align: left;
             font: normal normal normal 24px/34px Quicksand;
@@ -427,10 +435,10 @@ a.title:hover {
         }
         .baiviet {
             text-align: left;
-            font: normal normal normal 16px/24px Noto Serif;
-            letter-spacing: 0px;
+            //font: normal normal normal 16px/24px Noto Serif;
+            //letter-spacing: 0px;
             color: #000000;
-            opacity: 1;
+            font-weight: lighter;
         }
         .ExtraNews {
             display: flex;
