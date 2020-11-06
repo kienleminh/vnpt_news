@@ -4,44 +4,11 @@ import SearchingIcon from 'component/Figure/SearchIcon.svg';
 import LikeIcon from 'component/Figure/menu.svg';
 import Signup from '../Body/SignupDia';
 import 'component/css/Display.scss';
-import {READ_NEWS,VID_NEWS,AUD_NEWS} from '../../routes';
-import BlueTitle from 'component/pages/Body/BlueTitle';
+import {READ_NEWS,VID_NEWS,AUD_NEWS, IMG_NEWS} from '../../routes';
+import icon_title from 'component/Figure/icon_title.svg';
 
 function Header() {
   const [dis, setDis] = useState(false);
-  const list = [
-    'Xã hội',
-    'Sức khoẻ',
-    'Giải trí',
-    'Thể thao',
-    'Bảng tin',
-    'Video',
-    'Văn hoá',
-    'Giáo dục',
-    'Audio',
-    'Xu hướng',
-    'Mới nhất',
-    'Khác'
-  ];
-  const listMenu = [
-    'Xã hội',
-    'Kinh tế',
-    'Đời sống',
-    'Thế giới',
-    'Giải trí',
-    'Thể thao',
-    'Công nghệ',
-    'Video',
-    'Tin ảnh'
-  ]
-  const renderMenu = () => {
-    let menu = listMenu.map((data, index) =>
-        <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">{data}</a>
-        </div>
-    );
-    return menu;
-}
     return (
       <div className="header">
         <div className="searching">
@@ -49,9 +16,8 @@ function Header() {
           <div style={{float: 'right', height: '36px', width: '36px'}}>
           <button style={{border: '0px', backgroundColor: '#FFFFFF'}}>
             <>
-            
-            <Signup dis={dis} setDis={setDis}/> 
-          </>
+              <Signup dis={dis} setDis={setDis}/> 
+            </>
           </button> 
           </div>
           <div className="searchingbox">
@@ -71,38 +37,102 @@ function Header() {
             <div className="dropdown-content">
               <div style={{maxWidth:'992px'}}>
                 <div className="sub-dropdown">
-                {
-                      list.map((item, index) => {
-                          if(index<6){
-                              return (
-                                <a href="#" style={{maxWidth: '170px'}}>
-                                  <BlueTitle style={{maxWidth: '170px'}} key={index} title={item}/>
-                                </a>  
-                              );
-                          }
-                          return null;
-                      })
-                  }
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={READ_NEWS}>Xã hội</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={READ_NEWS}>Kinh tế</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={READ_NEWS}>Đời sống</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={READ_NEWS}>Thế giới</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={VID_NEWS}>giải trí</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={VID_NEWS}>thể thao</a>
+                  </span>
                 </div>
                 <div className="sub-dropdown">
-                {
-                      list.map((item, index) => {
-                          if(index>=6){
-                              return (
-                                <a href="#" style={{maxWidth: '170px'}}>
-                                  <BlueTitle style={{maxWidth: '170px'}} key={index} title={item}/>
-                                </a>  
-                              );
-                          }
-                          return null;
-                      })
-                  }
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={READ_NEWS}>Sức khoẻ</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={READ_NEWS}>Công nghệ</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={VID_NEWS}>Video</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={IMG_NEWS}>Tin ảnh</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={READ_NEWS}>tâm sự</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={READ_NEWS}>địa phương</a>
+                  </span>
+                </div>
+                <div className="sub-dropdown">
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={VID_NEWS}>xe 360</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={READ_NEWS}>giáo dục</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href={AUD_NEWS}>superinfo</a>
+                  </span>
+                  
                 </div>
               </div>
             </div>
           </div>
-          {renderMenu()}
-          
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Xã hội</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Kinh tế</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Đời sống</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Thế giới</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Giải trí</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={AUD_NEWS} target="_self" id="menutitle">Thể thao</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Công nghệ</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={VID_NEWS} target="_self" id="menutitle">Video</a>
+          </div>
+          <div className="menubox">
+            <a className="box" href={IMG_NEWS} target="_self" id="menutitle">Tin ảnh</a>
+          </div>
         </div>
         </div>
         );

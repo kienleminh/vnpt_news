@@ -1,8 +1,8 @@
 import React from 'react';
-import 'component/pages/Body/ExtraNew.scss';
+import 'component/pages/Body/ExtraVideo.scss';
 import {NewsService} from 'services/NewsService';
 
-class ExtraNews extends React.PureComponent {
+class ExtraVideo extends React.PureComponent {
     
     render() {
         const {item} = this.props;
@@ -10,7 +10,7 @@ class ExtraNews extends React.PureComponent {
             <div>
                 <a href='/readingnews' className="ExtraNews">
                     <div className="zoom-img">
-                        <div style={{overflow: 'hidden', borderRadius: '10px'}}>
+                        <div style={{overflow: 'hidden', borderRadius: '12px'}}>
                             <img src={item.img1} alt="Extra News" />
                         </div>
                     </div>
@@ -25,4 +25,4 @@ class ExtraNews extends React.PureComponent {
     }
 }
 
-export default ExtraNews;
+export default ExtraVideo;

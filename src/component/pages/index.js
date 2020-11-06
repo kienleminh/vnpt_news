@@ -3,7 +3,7 @@ import Footer from './Footer/Footer';
 import BodyHome from './Body/BodyHome';
 import BodyReading from './Body/BodyReading';
 import BodyVideo from './Body/BodyVideo';
-// import Slides from './Body/Slide';
+import BodyImg from './Body/BodyImg';
 import BodyAudio from './Body/BodyAudio';
 import Signup from './Body/Signup';
 
@@ -13,7 +13,7 @@ export {
     BodyHome,
     BodyReading,
     BodyVideo,
-    // Slides,
+    BodyImg,
     Signup,
     BodyAudio,
 };

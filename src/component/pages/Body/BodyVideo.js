@@ -1,9 +1,9 @@
 import React from 'react';
-import ExtraNews from './ExtraNews';
 import './BodyVideo.scss';
 import {MainNewsService, checkType} from 'services/MainNewsService';
 import {NewsService} from 'services/NewsService';
 import BlueTitle from './BlueTitle';
+import ExtraVideo from './ExtraVideo';
 class BodyVideo extends React.Component {
     constructor(props) {
         super(props);
@@ -26,6 +26,7 @@ class BodyVideo extends React.Component {
     getRelatedList() {
         const params = {
             "id": 59598,
+            // "id": this.props.id,
             "cateId": [
                 36
             ],
@@ -56,7 +57,6 @@ class BodyVideo extends React.Component {
                 content: res.data[0].content,
                 title: res.data[0].title,
             })
-            console.log("den day roi");
             if(res.data[0].contentType===0){
                 this.setState({
                     field: res.data[0].cateName[res.data[0].cateId[0]]
@@ -81,7 +81,7 @@ class BodyVideo extends React.Component {
     renderRelatedList = () => {
         let RelatedList = this.state.RelatedList.map((data, index) =>
             <>
-                <ExtraNews item={data}></ExtraNews>
+                <ExtraVideo item={data}></ExtraVideo>
 
             </>
         );
@@ -96,14 +96,14 @@ class BodyVideo extends React.Component {
                 </div>
                 <div className="baiviet">
                     <div className="video" >
-                        <video poster={this.state.NewsById.img1} src={this.state.content} type="video/mp4" autoplay="" controls=""></video>
+                        <video poster={this.state.NewsById.img1} src={this.state.content} type="video/mp4" autoplay controls ></video>
                     </div>
                     <h1>
                         {this.state.title}
                     </h1>
                     <div className="menutitle">{this.state.NewsById.sourceName} . {NewsService.convertedTime(this.state.NewsById.createTime)} </div>
                     <div style={{marginTop: '50px'}}>
-                    <BlueTitle title="Tin chủ đề" />
+                    <BlueTitle title="Tin cùng chủ đề" />
                     {this.renderRelatedList()}
                     </div>
                 </div>

@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.ExtraNews {
+    width: 682px;
+    height: 160px;
+    display: flex;
+    font-weight: bolder;
+    font: normal normal normal 20px/28px Quicksand;
+    margin-bottom: 16px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #A2A6BB;
+    img {
+        max-width: 285px;
+        max-height: 160px;
+        min-width: 285px;
+        min-height: 160px;
+        height: auto;
+    }
+    .zoom-img {
+        width: 285px;
+        height: 160px;
+        //overflow: hidden;
+    }
+    .zoom-img img {
+        
+        transition: 0.5s all ease-in-out;
+    }
+    .zoom-img:hover img {
+        transform: scale(1.1);
+    }
+}

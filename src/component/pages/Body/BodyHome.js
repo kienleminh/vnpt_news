@@ -9,9 +9,43 @@ import MoreNewsImg from 'component/Figure/MoreNewsImg.png';
 import {VideoLink} from 'component/Video';
 import 'component/css/Display.scss';
 import BlueTitle from './BlueTitle';
+import {NewsService} from 'services/NewsService';
 
 
 class BodyHome extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            title: '',
+            content: '',
+            field: '',
+            NewsById: [],
+            RelatedList: [],
+            Comment: [],
+            Trans: [],
+            a: '',
+        };
+    }
+    componentDidMount() {
+        this.getNewsList();
+        this.getCateList();
+    }
+    getNewsList() {
+        const params = {
+
+        }
+        NewsService.getNewsList(params, res => {
+            console.log(res);
+        })
+    }
+    getCateList() {
+        const params = {
+
+        }
+        NewsService.getCateList(params, res => {
+            console.log(res);
+        })
+    }
     render(){
     var News = {
         title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong toả trong thời gian dài',
