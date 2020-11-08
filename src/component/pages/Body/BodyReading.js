@@ -1,9 +1,8 @@
 import React from 'react';
 import ExtraNews from './ExtraNews';
-import {checkType, MainNewsService} from 'services/MainNewsService';
+import { NewsService} from 'services/NewsService';
 import BlueTitle from './BlueTitle';
 import 'component/css/Display.scss';
-import {NewsService} from 'services/NewsService';
 class BodyReading extends React.Component {
     constructor(props) {
         super(props);
@@ -33,7 +32,7 @@ class BodyReading extends React.Component {
             "contentType": 0,
             "pageSize": 10
         };
-        MainNewsService.getnews(params, res => {
+        NewsService.getRelatedList(params, res => {
             this.setState({
                 RelatedList: res.data,
             })
@@ -64,7 +63,7 @@ class BodyReading extends React.Component {
                 })
             } else {
                 this.setState({
-                    field: checkType(res.data[0].contentType)
+                    field: NewsService.checkType(res.data[0].contentType)
                 })
             }
         });

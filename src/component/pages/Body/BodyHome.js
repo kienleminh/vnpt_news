@@ -10,6 +10,7 @@ import {VideoLink} from 'component/Video';
 import 'component/css/Display.scss';
 import BlueTitle from './BlueTitle';
 import {NewsService} from 'services/NewsService';
+import {HomeService} from 'services/HomeService';
 
 
 class BodyHome extends Component {
@@ -43,6 +44,14 @@ class BodyHome extends Component {
 
         }
         NewsService.getCateList(params, res => {
+            console.log(res);
+        })
+    }
+    getHome() {
+        const params = {
+
+        }
+        HomeService.getHome(params, res => {
             console.log(res);
         })
     }

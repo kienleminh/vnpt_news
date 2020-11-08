@@ -134,6 +134,10 @@ const getRelatedList = function (data, successCallback, failCallback) {
   return postRequest(URL, data, params, successCallback, failCallback, transformNewsList);
 };
 
+const checkType = function(contentType){
+    return (contentType===1) ? 'Video' : (contentType===2) ? 'Tin ảnh' : 'Audio';
+}
+
 export const NewsService = {
   getCateList,
   getNewsById,
@@ -151,5 +155,6 @@ export const NewsService = {
   addHistory,
   delHistory,
   convertedTime,
+  checkType,
 };
 

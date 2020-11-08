@@ -1,6 +1,5 @@
 import React from 'react';
 import './BodyVideo.scss';
-import {MainNewsService, checkType} from 'services/MainNewsService';
 import {NewsService} from 'services/NewsService';
 import BlueTitle from './BlueTitle';
 import ExtraVideo from './ExtraVideo';
@@ -40,7 +39,7 @@ class BodyVideo extends React.Component {
             "contentType": 1,
             "pageSize": 10
         };
-        MainNewsService.getnews(params, res => {
+        NewsService.getRelatedList(params, res => {
             this.setState({
                 RelatedList: res.data,
             })
@@ -63,7 +62,7 @@ class BodyVideo extends React.Component {
                 })
             } else {
                 this.setState({
-                    field: checkType(res.data[0].contentType)
+                    field: NewsService.checkType(res.data[0].contentType)
                 })
             }
         });

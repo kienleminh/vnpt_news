@@ -1,7 +1,6 @@
 import React from 'react';
 import 'component/css/Display.scss';
-import {NewsService} from 'services/NewsService';
-import {checkType, MainNewsService} from 'services/MainNewsService';
+import { NewsService} from 'services/NewsService';
 import BlueTitle from './BlueTitle';
 import ExtraAudio from './ExtraAudio';
 
@@ -34,7 +33,7 @@ class BodyAudio extends React.Component {
             "contentType": 3,
             "pageSize": 10
         };
-        MainNewsService.getnews(params, res => {
+        NewsService.getRelatedList(params, res => {
             this.setState({
                 RelatedList: res.data,
             })
@@ -65,7 +64,7 @@ class BodyAudio extends React.Component {
                 })
             } else {
                 this.setState({
-                    field: checkType(res.data[0].contentType)
+                    field: NewsService.checkType(res.data[0].contentType)
                 })
             }
         });
