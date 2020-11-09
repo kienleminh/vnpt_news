@@ -1,0 +1,13 @@
+31: Xã hội
+32: Thế giới
+33: Giáo dục
+34: Kinh tế
+35: Giải trí
+36: Thể thao
+37: Công nghệ
+38: Xe 360
+39: Sức khoẻ
+40: Đời sống
+41: Video
+42: Tin ảnh
+3811: Tâm sự

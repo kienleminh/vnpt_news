@@ -25,7 +25,6 @@ class BodyVideo extends React.Component {
     getRelatedList() {
         const params = {
             "id": 59598,
-            // "id": this.props.id,
             "cateId": [
                 36
             ],
@@ -81,7 +80,6 @@ class BodyVideo extends React.Component {
         let RelatedList = this.state.RelatedList.map((data, index) =>
             <>
                 <ExtraVideo item={data}></ExtraVideo>
-
             </>
         );
         return RelatedList;

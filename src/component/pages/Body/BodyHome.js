@@ -3,68 +3,151 @@ import MainNews from './MainNews';
 import ExtraNews from './ExtraNews';
 import ExtraNewsImg from 'component/Figure/ExtraNewsImg.png';
 import MainNewsImg from 'component/Figure/MainNewsImg.png';
-import Right from './Right';
 import SummarizedNews from './SummarizedNews';
 import MoreNewsImg from 'component/Figure/MoreNewsImg.png';
-import {VideoLink} from 'component/Video';
 import 'component/css/Display.scss';
 import BlueTitle from './BlueTitle';
 import {NewsService} from 'services/NewsService';
-import {HomeService} from 'services/HomeService';
-
+import VideoNews from './VideoNews';
+import ImgNews from './ImgNews';
+import AudioNews from './AudioNews';
 
 class BodyHome extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            title: '',
-            content: '',
-            field: '',
-            NewsById: [],
-            RelatedList: [],
-            Comment: [],
-            Trans: [],
-            a: '',
+        this.state = {
+            a: [],
+            Trending: [],
+            Lastest: [],
+            Video: [],
+            Social: [],
+            Economic: [],
+            Life: [],
+            Audio: [],
         };
     }
     componentDidMount() {
-        this.getNewsList();
+        this.getTrending();
+        this.getLastest();
+        this.getVideo();
         this.getCateList();
-    }
-    getNewsList() {
-        const params = {
-
-        }
-        NewsService.getNewsList(params, res => {
-            console.log(res);
-        })
+        this.getCateSoc();
+        this.getCateEco();
+        this.getCateLife();
+        this.getCateAudio();
     }
     getCateList() {
-        const params = {
-
-        }
+        const params = {}
         NewsService.getCateList(params, res => {
-            console.log(res);
+            this.setState({
+                
+            })
         })
     }
-    getHome() {
+    getLastest() {
         const params = {
-
-        }
-        HomeService.getHome(params, res => {
-            console.log(res);
-        })
+            contentType: 0,
+            orderType: 0,
+            pageSize: 3,
+        };
+        NewsService.getNewsList({params}, res => {
+            this.setState({
+                Lastest: res.data,
+            })
+        });
+    }
+    getTrending() {
+        const params = {
+            contentType: 0,
+            trending: 1,
+            pageSize: 3,
+        };
+        NewsService.getNewsList({params}, res => {
+            this.setState({
+                Trending: res.data,
+            })
+        });
+    }
+    getVideo() {
+        const params = {
+            orderType: 0,
+            contentType: 1,
+            pageSize: 3,
+        };
+        NewsService.getNewsList({params}, res => {
+            this.setState({
+                Video: res.data,
+            })
+        });
+    }
+    getCateSoc() {
+        const params = {
+            contentType: 0,
+            cateId: 31,
+            pageSize: 3,
+        };
+        NewsService.getNewsList({params}, res => {
+            this.setState({
+                Social: res.data,
+            })
+        });
+    }
+    getCateEco() {
+        const params = {
+            contentType: 0,
+            cateId: 34,
+            pageSize: 3,
+        };
+        NewsService.getNewsList({params}, res => {
+            this.setState({
+                Economic: res.data,
+            })
+        });
+    }
+    getCateLife() {
+        const params = {
+            contentType: 0,
+            cateId: 40,
+            pageSize: 3,
+        };
+        NewsService.getNewsList({params}, res => {
+            this.setState({
+                Life: res.data,
+            })
+        });
+    }
+    getCateAudio() {
+        const params = {
+            contentType: 3,
+            pageSize: 3,
+        };
+        NewsService.getNewsList({params}, res => {
+            this.setState({
+                Audio: res.data,
+            })
+        });
+    }
+    renderCate = (CateList) => {
+        let List = CateList.map((data, index) =>
+            <>
+                <ExtraNews item={data}></ExtraNews>
+            </>
+        );
+        return List;
+    }
+    renderVideo = (CateList) => {
+        let List = CateList.map((data, index) =>
+            <>
+                <VideoNews item={data}></VideoNews>
+            </>
+        );
+        return List;
     }
     render(){
     var News = {
         title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong toả trong thời gian dài',
         newsId: '6',
         img1: ExtraNewsImg,
-    };
-    const Videos = {
-        title: 'Chính phủ họp bàn phương án cách ly xã hội sau 15/4',
-        time: '6',
-        vid: VideoLink,
     };
     var More = {
         title: 'Hơn 80 tấn gạo ủng hộ cho 2 \'ATM gạo\' ở Đà Nẵng',
@@ -79,16 +162,42 @@ class BodyHome extends Component {
                     <MainNews title={News.title} img={MainNewsImg} />
                     </a>
                     <BlueTitle title="Xu hướng"/>
-                    <ExtraNews item={News}/>
+                    <>
+                        {this.renderCate(this.state.Trending)}
+                    </>
                     <BlueTitle title="Mới nhất"/>
-                    <ExtraNews item={News}/>
-                    <ExtraNews item={News} extratitle="Xã hội"/>
-                    <ExtraNews item={News} extratitle="Sức khoẻ"/>
-                    <ExtraNews item={News} extratitle="Giáo dục"/>
+                    <>
+                        {this.renderCate(this.state.Lastest)}
+                    </>
+                    <BlueTitle title="Xã hội"/>
+                    <>
+                        {this.renderCate(this.state.Social)}
+                    </>
+                    <BlueTitle title="Kinh tế"/>
+                    <>
+                        {this.renderCate(this.state.Economic)}
+                    </>
+                    <BlueTitle title="Đời sống"/>
+                    <>
+                        {this.renderCate(this.state.Life)}
+                    </>
                     
                 </div>
                 <div className="Right">
-                    <Right firBigtitle='Tin Video' secBigtitle='Tin Ảnh' thrBigtitle='Tin Audio' title={Videos.title} vid={Videos.vid} time={Videos.time}/>
+                <>
+                    <BlueTitle title="Tin Video" link="/videonews" />
+                    <div className="Right">
+                        {this.renderVideo(this.state.Video)}
+                    </div>
+                    <BlueTitle title="Tin Ảnh" link="/videonews"/>
+                    <ImgNews />
+                    <BlueTitle title="Tin Audio" link="/audionews"/>
+                    <div className="Right">
+                        <AudioNews title="Hơn 80 tấn gạo ủng hộ cho 2 'ATM gạo' ở Đà Nẵng"/>
+                        <AudioNews title="Hơn 80 tấn gạo ủng hộ cho 2 'ATM gạo' ở Đà Nẵng"/>
+                        <AudioNews title="Hơn 80 tấn gạo ủng hộ cho 2 'ATM gạo' ở Đà Nẵng"/>
+                    </div>
+                </>
                 </div>
             </div>
             <div className="SummarizedNews">
