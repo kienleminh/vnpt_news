@@ -22,9 +22,16 @@ class BodyVideo extends React.Component {
         this.getNewsDetail();
         this.getComment();
     }
+    getParams(){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const Id = urlParams.get('newsId');
+        console.log(Id)
+        return Id;
+    }
     getRelatedList() {
         const params = {
-            "id": 59598,
+            "id": this.getParams(),
             "cateId": [
                 36
             ],
@@ -46,9 +53,9 @@ class BodyVideo extends React.Component {
     }
     getNewsDetail() {
         const params = {
-            id: 59598,
+            "id": this.getParams(),
         };
-        NewsService.getNewsById({ params }, res => {
+        NewsService.getNewsById({params}, res => {
             this.setState({
                 NewsById: res.data[0],
                 field: res.data[0].cateName[res.data[0].cateId[0]],
@@ -68,7 +75,7 @@ class BodyVideo extends React.Component {
     }
     getComment() {
         const params = {
-            id: 59069,
+            "id": this.getParams(),
             pageSize: 2,
         };
         NewsService.getCommentList({params}, res => {

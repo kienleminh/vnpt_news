@@ -4,7 +4,7 @@ import SearchingIcon from 'component/Figure/SearchIcon.svg';
 import LikeIcon from 'component/Figure/menu.svg';
 import Signup from '../Body/SignupDia';
 import 'component/css/Display.scss';
-import {READ_NEWS,VID_NEWS,AUD_NEWS, IMG_NEWS} from '../../routes';
+import {READ_NEWS,VID_NEWS,AUD_NEWS, IMG_NEWS, CATE_NEWS} from '../../routes';
 import icon_title from 'component/Figure/icon_title.svg';
 
 function Header() {
@@ -77,7 +77,7 @@ function Header() {
                   </span>
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={IMG_NEWS}>Tin ảnh</a>
+                    <a href="/imagenews?newsId=61421&contentType=2">Tin ảnh</a>
                   </span>
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
@@ -107,19 +107,19 @@ function Header() {
             </div>
           </div>
           <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Xã hội</a>
+            <a className="box" href={CATE_NEWS} target="_self" id="menutitle">Xã hội</a>
           </div>
           <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Kinh tế</a>
+            <a className="box" href={CATE_NEWS} target="_self" id="menutitle">Kinh tế</a>
           </div>
           <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Đời sống</a>
+            <a className="box" href={CATE_NEWS} target="_self" id="menutitle">Đời sống</a>
           </div>
           <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Thế giới</a>
+            <a className="box" href={CATE_NEWS} target="_self" id="menutitle">Thế giới</a>
           </div>
           <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Giải trí</a>
+            <a className="box" href={CATE_NEWS} target="_self" id="menutitle">Giải trí</a>
           </div>
           <div className="menubox">
             <a className="box" href={AUD_NEWS} target="_self" id="menutitle">Thể thao</a>
@@ -131,7 +131,7 @@ function Header() {
             <a className="box" href={VID_NEWS} target="_self" id="menutitle">Video</a>
           </div>
           <div className="menubox">
-            <a className="box" href={IMG_NEWS} target="_self" id="menutitle">Tin ảnh</a>
+            <a className="box" href="/imagenews?newsId=61421&contentType=2" target="_self" id="menutitle">Tin ảnh</a>
           </div>
         </div>
         </div>

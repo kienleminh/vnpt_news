@@ -22,10 +22,17 @@ class BodyReading extends React.Component {
         this.getNewsDetail();
         this.getComment();
     }
+    getParams(){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const Id = urlParams.get('newsId');
+        console.log(Id)
+        return Id;
+    }
     //Realated List
     getRelatedList() {
         const params = {
-            "id": 59776,
+            "id": this.getParams(),
             "cateId": [
                 35
             ],
@@ -49,7 +56,7 @@ class BodyReading extends React.Component {
     //Main news
     getNewsDetail() {
         const params = {
-            "id": 59776,
+            "id": this.getParams(),
         };
         NewsService.getNewsById({ params }, res => {
             this.setState({
@@ -78,7 +85,7 @@ class BodyReading extends React.Component {
     //Comment
     getComment() {
         const params = {
-            "id": 59776,
+            "id": this.getParams(),
             "pageSize": 2,
         };
         NewsService.getCommentList({params}, res => {

@@ -23,10 +23,17 @@ class BodyAudio extends React.Component {
         this.getNewsDetail();
         // this.getComment();
     }
+    getParams(){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const Id = urlParams.get('newsId');
+        console.log(Id)
+        return Id;
+    }
     //Realated List
     getRelatedList() {
         const params = {
-            "id": 59074,
+            "id": this.getParams(),
             "cateId": [
                 36
             ],
@@ -50,7 +57,7 @@ class BodyAudio extends React.Component {
     //Main news
     getNewsDetail() {
         const params = {
-            id: 59074,
+            "id": this.getParams(),
         };
         NewsService.getNewsById({ params }, res => {
             this.setState({

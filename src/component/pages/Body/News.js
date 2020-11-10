@@ -17,8 +17,8 @@ class VideoNews extends React.PureComponent {
             <>
                 <a href={this.getURL(item)} className="VideoNews">
                     <div>
-                        <video poster={item.img1} src={item.content} type="video/mp4" width="320px" height="185px" controls  style={{borderRadius: '20px'}}>
-                        </video>
+                        <img src={item.img1} width="320px" height="185px" style={{borderRadius: '20px'}}>
+                        </img>
                         <a href={this.getURL(item)} style={{color:'black'}}>{item.title}</a>
     
                     </div>

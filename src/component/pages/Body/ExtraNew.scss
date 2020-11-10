@@ -7,7 +7,7 @@
     font-weight: bolder;
     font: normal normal normal 20px/28px Quicksand;
     margin-bottom: 16px;
-    padding-bottom: 17px;
+    // padding-bottom: 17px;
     border-bottom: 1px solid #A2A6BB;
     img {
         max-width: 152px;
@@ -22,7 +22,8 @@
         //overflow: hidden;
     }
     .zoom-img img {
-        
+        max-width: 100%;
+        min-height: 150px;
         transition: 0.5s all ease-in-out;
     }
     .zoom-img:hover img {

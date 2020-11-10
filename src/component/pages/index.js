@@ -6,6 +6,7 @@ import BodyVideo from './Body/BodyVideo';
 import BodyImg from './Body/BodyImg';
 import BodyAudio from './Body/BodyAudio';
 import Signup from './Body/Signup';
+import CateNews from './Body/CateNews';
 
 export {
     Header,
@@ -16,4 +17,5 @@ export {
     BodyImg,
     Signup,
     BodyAudio,
+    CateNews,
 };

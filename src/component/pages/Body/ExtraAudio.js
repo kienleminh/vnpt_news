@@ -3,12 +3,17 @@ import 'component/pages/Body/ExtraAudio.scss';
 import {NewsService} from 'services/NewsService';
 
 class ExtraAudio extends React.PureComponent {
-    
+    getURL(params){
+        let url = '/audionews?';
+        url +=('newsId=' + params.newsId);
+        url +=('&contentType='+params.contentType);
+        return url;
+    }
     render() {
         const {item} = this.props;
         return (
             <div>
-                <a href='/readingnews' className="ExtraNews">
+                <a href={this.getURL(item)} className="ExtraNews">
                     <div className="zoom-img">
                         <div style={{overflow: 'hidden', borderRadius: '12px'}}>
                             <img src={item.img1} alt="Extra News" />

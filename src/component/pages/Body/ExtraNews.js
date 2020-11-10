@@ -3,12 +3,21 @@ import 'component/pages/Body/ExtraNew.scss';
 import {NewsService} from 'services/NewsService';
 
 class ExtraNews extends React.PureComponent {
-    
+    getURL(params){
+        let url = '';
+        if(params.contentType===0) { url += '/readingnews?';}
+        else if(params.contentType===1) { url +='/videonews?';}
+        else if(params.contentType===2) { url += '/imagenews?';}
+        else { url += '/audionews?'};
+        url +=('newsId=' + params.newsId);
+        url +=('&contentType='+params.contentType);
+        return url;
+    }
     render() {
         const {item} = this.props;
         return (
             <div>
-                <a href='/readingnews' className="ExtraNews">
+                <a href={this.getURL(item)} className="ExtraNews">
                     <div className="zoom-img">
                         <div style={{overflow: 'hidden', borderRadius: '10px'}}>
                             <img src={item.img1} alt="Extra News" />

@@ -1,10 +1,6 @@
 import React, { Component } from 'react'; 
 import MainNews from './MainNews';
 import ExtraNews from './ExtraNews';
-import ExtraNewsImg from 'component/Figure/ExtraNewsImg.png';
-import MainNewsImg from 'component/Figure/MainNewsImg.png';
-import SummarizedNews from './SummarizedNews';
-import MoreNewsImg from 'component/Figure/MoreNewsImg.png';
 import 'component/css/Display.scss';
 import BlueTitle from './BlueTitle';
 import {NewsService} from 'services/NewsService';
@@ -16,25 +12,15 @@ class BodyHome extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            a: [],
-            Trending: [],
-            Lastest: [],
-            Video: [],
-            Social: [],
-            Economic: [],
-            Life: [],
-            Audio: [],
+            Trending: [],Lastest: [],Video: [],Social: [],Economic: [],
+            Life: [],Audio: [],MainNews: [],
         };
+        this.params = {};
     }
     componentDidMount() {
-        this.getTrending();
-        this.getLastest();
-        this.getVideo();
-        this.getCateList();
-        this.getCateSoc();
-        this.getCateEco();
-        this.getCateLife();
-        this.getCateAudio();
+        this.getTrending(); this.getLastest(); this.getVideo();
+        this.getCateList();  this.getCateSoc(); this.getCateEco();
+        this.getCateLife(); this.getMainNews();
     }
     getCateList() {
         const params = {}
@@ -116,21 +102,22 @@ class BodyHome extends Component {
             })
         });
     }
-    getCateAudio() {
+    getMainNews() {
         const params = {
-            contentType: 3,
-            pageSize: 3,
-        };
+            groupType: 13,
+            contentType: 0,
+            pageSize: 5,
+        }
         NewsService.getNewsList({params}, res => {
             this.setState({
-                Audio: res.data,
+                MainNews: res.data[0],
             })
         });
     }
     renderCate = (CateList) => {
         let List = CateList.map((data, index) =>
             <>
-                <ExtraNews item={data}></ExtraNews>
+                <ExtraNews item={data} ></ExtraNews>
             </>
         );
         return List;
@@ -143,25 +130,20 @@ class BodyHome extends Component {
         );
         return List;
     }
-    render(){
-    var News = {
-        title: 'Nghiêm túc cách ly xã hội trong thời gian ngắn để không phải phong toả trong thời gian dài',
-        newsId: '6',
-        img1: ExtraNewsImg,
-    };
-    var More = {
-        title: 'Hơn 80 tấn gạo ủng hộ cho 2 \'ATM gạo\' ở Đà Nẵng',
-        img: MoreNewsImg,
-        time: '6',
+    putListSlide = (News) => {
+        let List = [];
+        List = News.map((data, index) => data.img1);
+        return List;
     }
+    render(){
     return(
         <>
             <div className="body">
                 <div className="Left">
-                    <a href="/readingnews">
-                    <MainNews title={News.title} img={MainNewsImg} />
-                    </a>
-                    <BlueTitle title="Xu hướng"/>
+                    <>
+                    <MainNews item={this.state.MainNews} />
+                    </>
+                    <BlueTitle title="Xu hướng" />
                     <>
                         {this.renderCate(this.state.Trending)}
                     </>
@@ -193,17 +175,15 @@ class BodyHome extends Component {
                     <ImgNews />
                     <BlueTitle title="Tin Audio" link="/audionews"/>
                     <div className="Right">
-                        <AudioNews title="Hơn 80 tấn gạo ủng hộ cho 2 'ATM gạo' ở Đà Nẵng"/>
-                        <AudioNews title="Hơn 80 tấn gạo ủng hộ cho 2 'ATM gạo' ở Đà Nẵng"/>
-                        <AudioNews title="Hơn 80 tấn gạo ủng hộ cho 2 'ATM gạo' ở Đà Nẵng"/>
+                        <AudioNews/>
                     </div>
                 </>
                 </div>
             </div>
             <div className="SummarizedNews">
-                <SummarizedNews title={More.title} img={More.img} time={More.time} extratitle="Văn hoá"/>
+                {/* <SummarizedNews title={More.title} img={More.img} time={More.time} extratitle="Văn hoá"/>
                 <SummarizedNews title={More.title} img={More.img} time={More.time} extratitle="Xã hội" />
-                <SummarizedNews title={More.title} img={More.img} time={More.time} extratitle="Thể thao" />
+                <SummarizedNews title={More.title} img={More.img} time={More.time} extratitle="Thể thao" /> */}
             </div>
         
         </>

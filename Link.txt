@@ -5,3 +5,4 @@ https://hocwebchuan.com/tutorial/reactjs/reactjs_mysql.php#anchor01
 https://www.freecodecamp.org/news/8-reactjs-project-ideas-to-start-learning-by-doing/?fbclid=IwAR164WW2lgCgOndLACR_6xOP8XdsPptVkOcTU7EkOoUCTaLWJ6a5aRotMkg
 https://viblo.asia/p/tim-hieu-setstate-trong-reactjs-07LKXpNPKV4
 https://digitoday.vn/kinh-te/gia-usd-giam-nhanh-truoc-thong-tin-ong-joe-biden-dang-chiem-uu-the-vnw59069-0
+10.144.14.18:8000

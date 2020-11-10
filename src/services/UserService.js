@@ -1,4 +1,3 @@
-import {data} from 'jquery';
 import { postRequest } from 'utils/http';
 
 const BACKEND_API = 'https://api.digitoday.vn/api';
