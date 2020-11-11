@@ -12,7 +12,6 @@ class VideoNews extends React.PureComponent {
         else {url += 'audionews?'}
         url +=('newsId=' + params.newsId);
         url +=('&contentType='+params.contentType);
-        console.log(url)
         return url;
     }
     render() {

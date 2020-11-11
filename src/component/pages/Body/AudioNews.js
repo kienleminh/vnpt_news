@@ -10,7 +10,6 @@ class AudioNews extends React.Component{
         else {url += 'audionews?'}
         url +=('newsId=' + params.newsId);
         url +=('&contentType='+params.contentType);
-        console.log(url)
         return url;
     }
     render() {

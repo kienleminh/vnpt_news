@@ -27,7 +27,6 @@ class BodyAudio extends React.Component {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const Id = urlParams.get('newsId');
-        console.log(Id)
         return Id;
     }
     //Realated List

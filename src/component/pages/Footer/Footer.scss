@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+/********Footer******/
+
+.footer {
+    width: 100%;
+    margin: 0px auto;
+    margin-top: 75px;
+    padding-top: 17px;
+    //padding-left: 134px;
+    background: #5379F5;
+    text-align: left;
+    font: normal normal normal 14px/21px Quicksand;
+    letter-spacing: -0.35px;
+    color: #F0F2FD;
+    opacity: 1;
+    .foot {
+        width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+        .inner{
+            margin-left: 134px;
+            
+        }
+    }
+}

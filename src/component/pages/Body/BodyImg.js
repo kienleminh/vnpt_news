@@ -34,7 +34,7 @@ class BodyReading extends React.Component {
             "id": this.getParams(),
             "cateId": [
             ],
-            "contentType": 0,
+            "contentType": 2,
             "pageSize": 10
         };
         NewsService.getRelatedList(params, res => {

@@ -10,7 +10,6 @@ class MainNews extends Component {
         else {url += 'audionews?'}
         url +=('newsId=' + params.newsId);
         url +=('&contentType='+params.contentType);
-        console.log(url)
         return url;
     }
     render() {

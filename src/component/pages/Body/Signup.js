@@ -23,10 +23,7 @@ class Signup extends React.Component {
     };
     
     UserService.login(data, res => {
-      console.log(res);
-      console.log(res.resultInfo.message);
       this.setState({username: res.resultInfo.message});
-      console.log(this.state.username + 'okie')
     });
   }
   // handleMainnew = () => {
@@ -39,7 +36,6 @@ class Signup extends React.Component {
   //     "token": ""
   //   };
   //   UserService.mainnew(data, res => {
-  //     console.log(res);
   //   });
   // }
 
@@ -63,7 +59,6 @@ class Signup extends React.Component {
         </div> */}
 
         <div>
-          {/* {console.log(this.state.username)} */}
         </div>
       
       </>

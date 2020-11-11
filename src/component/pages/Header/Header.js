@@ -39,67 +39,67 @@ function Header() {
                 <div className="sub-dropdown">
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={READ_NEWS}>Xã hội</a>
+                    <a href='/catenews?cateId=31'>Xã hội</a>
                   </span>
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={READ_NEWS}>Kinh tế</a>
+                    <a href='/catenews?cateId=34'>Kinh tế</a>
                   </span>
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={READ_NEWS}>Đời sống</a>
+                    <a href='/catenews?cateId=40'>Đời sống</a>
                   </span>
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={READ_NEWS}>Thế giới</a>
+                    <a href='/catenews?cateId=32'>Thế giới</a>
                   </span>
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={VID_NEWS}>giải trí</a>
+                    <a href='/catenews?cateId=35'>giải trí</a>
                   </span>
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={VID_NEWS}>thể thao</a>
-                  </span>
-                </div>
-                <div className="sub-dropdown">
-                  <span className="sub-menu">
-                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={READ_NEWS}>Sức khoẻ</a>
-                  </span>
-                  <span className="sub-menu">
-                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={READ_NEWS}>Công nghệ</a>
-                  </span>
-                  <span className="sub-menu">
-                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={VID_NEWS}>Video</a>
-                  </span>
-                  <span className="sub-menu">
-                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href="/imagenews?newsId=61421&contentType=2">Tin ảnh</a>
-                  </span>
-                  <span className="sub-menu">
-                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={READ_NEWS}>tâm sự</a>
-                  </span>
-                  <span className="sub-menu">
-                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={READ_NEWS}>địa phương</a>
+                    <a href='/catenews?cateId=36'>thể thao</a>
                   </span>
                 </div>
                 <div className="sub-dropdown">
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={VID_NEWS}>xe 360</a>
+                    <a href='/catenews?cateId=39'>Sức khoẻ</a>
                   </span>
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={READ_NEWS}>giáo dục</a>
+                    <a href='/catenews?cateId=37'>Công nghệ</a>
                   </span>
                   <span className="sub-menu">
                     <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
-                    <a href={AUD_NEWS}>superinfo</a>
+                    <a href='/catenews?cateId=41'>Video</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href='/catenews?cateId=42'>Tin ảnh</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href='/catenews?cateId=3811'>tâm sự</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href='/catenews?cateId=31'>địa phương</a>
+                  </span>
+                </div>
+                <div className="sub-dropdown">
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href='/catenews?cateId=38'>xe 360</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href='/catenews?cateId=33'>giáo dục</a>
+                  </span>
+                  <span className="sub-menu">
+                    <img src={icon_title} alt="" style={{marginRight: '8px'}}></img>
+                    <a href='/catenews?cateId=31'>superinfo</a>
                   </span>
                   
                 </div>
@@ -107,31 +107,31 @@ function Header() {
             </div>
           </div>
           <div className="menubox">
-            <a className="box" href={CATE_NEWS} target="_self" id="menutitle">Xã hội</a>
+            <a className="box" href='/catenews?cateId=31' target="_self" id="menutitle">Xã hội</a>
           </div>
           <div className="menubox">
-            <a className="box" href={CATE_NEWS} target="_self" id="menutitle">Kinh tế</a>
+            <a className="box" href='/catenews?cateId=34' target="_self" id="menutitle">Kinh tế</a>
           </div>
           <div className="menubox">
-            <a className="box" href={CATE_NEWS} target="_self" id="menutitle">Đời sống</a>
+            <a className="box" href='/catenews?cateId=40' target="_self" id="menutitle">Đời sống</a>
           </div>
           <div className="menubox">
-            <a className="box" href={CATE_NEWS} target="_self" id="menutitle">Thế giới</a>
+            <a className="box" href='/catenews?cateId=32' target="_self" id="menutitle">Thế giới</a>
           </div>
           <div className="menubox">
-            <a className="box" href={CATE_NEWS} target="_self" id="menutitle">Giải trí</a>
+            <a className="box" href='/catenews?cateId=35' target="_self" id="menutitle">Giải trí</a>
           </div>
           <div className="menubox">
-            <a className="box" href={AUD_NEWS} target="_self" id="menutitle">Thể thao</a>
+            <a className="box" href='/catenews?cateId=36' target="_self" id="menutitle">Thể thao</a>
           </div>
           <div className="menubox">
-            <a className="box" href={READ_NEWS} target="_self" id="menutitle">Công nghệ</a>
+            <a className="box" href='/catenews?cateId=37' target="_self" id="menutitle">Công nghệ</a>
           </div>
           <div className="menubox">
-            <a className="box" href={VID_NEWS} target="_self" id="menutitle">Video</a>
+            <a className="box" href='/catenews?cateId=41' target="_self" id="menutitle">Video</a>
           </div>
           <div className="menubox">
-            <a className="box" href="/imagenews?newsId=61421&contentType=2" target="_self" id="menutitle">Tin ảnh</a>
+            <a className="box" href='/catenews?cateId=42' target="_self" id="menutitle">Tin ảnh</a>
           </div>
         </div>
         </div>
