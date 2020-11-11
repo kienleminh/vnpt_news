@@ -13,14 +13,15 @@ class BodyHome extends Component {
         super(props);
         this.state = {
             Trending: [],Lastest: [],Video: [],Social: [],Economic: [],
-            Life: [],Audio: [],MainNews: [],
+            Life: [],Audio: [],MainNews: [], ImgNews: [],
         };
         this.params = {};
     }
     componentDidMount() {
         this.getTrending(); this.getLastest(); this.getVideo();
         this.getCateList();  this.getCateSoc(); this.getCateEco();
-        this.getCateLife(); this.getMainNews();
+        this.getCateLife(); this.getCateAudio(); this.getMainNews();
+        this.getImg();
     }
     getCateList() {
         const params = {}
@@ -114,6 +115,37 @@ class BodyHome extends Component {
             })
         });
     }
+    getCateAudio() {
+        const params = {
+            contentType: 3,
+            pageSize: 3,
+        };
+        NewsService.getNewsList({params}, res => {
+            this.setState({
+                Audio: res.data,
+            })
+        });
+    }
+    getImg(){
+        const params = {
+            contentType: 2,
+            orderType: 0,
+            pageSize: 3,
+        }
+        NewsService.getNewsList({params}, res =>{
+            this.setState({
+                ImgNews: res.data,
+            })
+        })
+    }
+    renderImg(CateList) {
+        let List = CateList.map((data, index) =>
+            <>
+                <ImgNews item={data} key={index} />
+            </>
+        );
+        return List;
+    }
     renderCate = (CateList) => {
         let List = CateList.map((data, index) =>
             <>
@@ -126,6 +158,14 @@ class BodyHome extends Component {
         let List = CateList.map((data, index) =>
             <>
                 <VideoNews item={data}></VideoNews>
+            </>
+        );
+        return List;
+    }
+    renderAudio(CateList) {
+        let List = CateList.map((data, index) =>
+            <>
+                <AudioNews item={data} key={index} />
             </>
         );
         return List;
@@ -172,10 +212,12 @@ class BodyHome extends Component {
                         {this.renderVideo(this.state.Video)}
                     </div>
                     <BlueTitle title="Tin Ảnh" link="/videonews"/>
-                    <ImgNews />
+                    <div className="Right">
+                        {this.renderImg(this.state.ImgNews)}
+                    </div>
                     <BlueTitle title="Tin Audio" link="/audionews"/>
                     <div className="Right">
-                        <AudioNews/>
+                        {this.renderAudio(this.state.Audio)}
                     </div>
                 </>
                 </div>

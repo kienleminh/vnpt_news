@@ -33,15 +33,9 @@ class BodyVideo extends React.Component {
         const params = {
             "id": this.getParams(),
             "cateId": [
-                36
+                
             ],
-            "tags": [
-                "Video bóng đá",
-                "Video trận đấu",
-                "Điểm tin",
-                "Real Madrid",
-                "Mbappe"
-            ],
+            
             "contentType": 1,
             "pageSize": 10
         };

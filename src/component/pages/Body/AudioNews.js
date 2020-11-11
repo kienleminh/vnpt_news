@@ -1,46 +1,32 @@
 import React from 'react';
 import 'component/css/Display.scss';
-import {NewsService} from 'services/NewsService';
 
 class AudioNews extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            item: [],
-        }
-    }
-    componentDidMount(){
-        this.getCateAudio();
-    }
-    getCateAudio() {
-        const params = {
-            contentType: 3,
-            pageSize: 3,
-        };
-        NewsService.getNewsList({params}, res => {
-            this.setState({
-                item: res.data,
-            })
-        });
-    }
-    renderAudio(CateList) {
-        let List = CateList.map((data, index) =>
-            <a className='AudioNews' href="/audionews">
-                <div className="zoom-img">
-                    <img src={data.img1} alt="Audio News Img"/>
-                </div>
-                <div className="title">
-                    {data.title}
-                </div>
-            </a>
-        );
-        return List;
+    getURL(params){
+        let url = '/';
+        if(params.contentType===0){url += 'readingnews?'}
+        else if(params.contentType===1){url += 'videonews?'}
+        else if(params.contentType===2){url += 'imagenews?'}
+        else {url += 'audionews?'}
+        url +=('newsId=' + params.newsId);
+        url +=('&contentType='+params.contentType);
+        console.log(url)
+        return url;
     }
     render() {
+        const {item} = this.props;
         return(
-            <>
-                {this.renderAudio(this.state.item)}
-            </>
+            <a className='AudioNews' href={this.getURL(item)}>
+                <div className="zoom-img">
+                    <img src={item.img1} alt="Audio News Img"/>
+                </div>
+                <div>
+                    <div className="title">
+                        {item.title}
+                    </div>
+                    <div className="Status">{item.sourceName} . {item.createTime}</div>
+                </div>
+            </a>
         )
 
     }

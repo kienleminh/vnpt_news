@@ -3,7 +3,7 @@ import {NewsService} from 'services/NewsService';
 import './Cate.scss';
 import MainNews from './MainNews';
 import BlueTitle from './BlueTitle';
-import VideoNews from './VideoNews';
+import News from './News';
 
 class CateList extends React.Component{
     constructor(props){
@@ -70,7 +70,7 @@ class CateList extends React.Component{
                     <div className="Right" style={{marginTop:'76px'}}>
                     <>
                         <div className="Right">
-                            <VideoNews item={this.state.SubNews} />
+                            <News item={this.state.SubNews} />
                         </div>
                         {/* <BlueTitle title="Tin Ảnh" link="/videonews"/>
                         <ImgNews />

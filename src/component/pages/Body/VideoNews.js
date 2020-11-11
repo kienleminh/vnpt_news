@@ -5,7 +5,11 @@ import 'component/css/Display.scss';
 
 class VideoNews extends React.PureComponent {
     getURL(params){
-        let url = '/videonews?';
+        let url = '/';
+        if(params.contentType===0){url += 'readingnews?'}
+        else if(params.contentType===1){url += 'videonews?'}
+        else if(params.contentType===2){url += 'imagenews?'}
+        else {url += 'audionews?'}
         url +=('newsId=' + params.newsId);
         url +=('&contentType='+params.contentType);
         console.log(url)
@@ -15,7 +19,7 @@ class VideoNews extends React.PureComponent {
         const {item} = this.props;
         return(
             <>
-                <a href={this.getURL(item)} className="VideoNews">
+                <div href={this.getURL(item)} className="VideoNews">
                     <div>
                         <video poster={item.img1} src={item.content} type="video/mp4" width="320px" height="185px" controls  style={{borderRadius: '20px'}}>
                         </video>
@@ -27,7 +31,7 @@ class VideoNews extends React.PureComponent {
                         <StatusTab/>
                     </div>
     
-                </a>
+                </div>
                 
             </>
         );

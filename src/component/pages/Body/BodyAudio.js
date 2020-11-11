@@ -35,7 +35,6 @@ class BodyAudio extends React.Component {
         const params = {
             "id": this.getParams(),
             "cateId": [
-                36
             ],
             "contentType": 3,
             "pageSize": 10

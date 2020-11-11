@@ -13,7 +13,7 @@ class BodyReading extends React.Component {
             NewsById: [],
             RelatedList: [],
             Comment: [],
-            Trans: [],
+            Img: [],
             descrip: '',
         };
     }
@@ -26,7 +26,6 @@ class BodyReading extends React.Component {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const Id = urlParams.get('newsId');
-        console.log(Id)
         return Id;
     }
     //Realated List
@@ -34,7 +33,6 @@ class BodyReading extends React.Component {
         const params = {
             "id": this.getParams(),
             "cateId": [
-                35
             ],
             "contentType": 0,
             "pageSize": 10
@@ -64,23 +62,17 @@ class BodyReading extends React.Component {
                 content: res.data[0].content,
                 title: res.data[0].title,
                 descrip: res.data[0].description,
+                Img: res.data[0].contentImgList,
             })
-            if(res.data[0].contentType===0){
-                this.setState({
-                    field: res.data[0].cateName[res.data[0].cateId[0]]
-                })
-            } else {
-                this.setState({
-                    field: NewsService.checkType(res.data[0].contentType)
-                })
-            }
         });
     }
-    createInnerHTML(str) {
-        return {__html: str};
-    }
-    myContent(str) {
-        return <div dangerouslySetInnerHTML={this.createInnerHTML(str)} />;
+    myImg(array) {
+        let img = array.map((data, index) =>
+            <>
+                <img src={data}></img>
+            </>
+        );
+        return img;
     }
     //Comment
     getComment() {
@@ -104,8 +96,8 @@ class BodyReading extends React.Component {
 
                 <div className="menutitle">{this.state.NewsById.sourceName} . {NewsService.convertedTime(this.state.NewsById.createTime)} </div>
                 <div className="baiviet">
-                    <div style={{fontWeight: '700'}}>{this.myContent(this.state.descrip)}</div>
-                    {this.myContent(this.state.content)}
+                    {/* <div style={{fontWeight: '700'}}>{this.myContent(this.state.descrip)}</div> */}
+                    {this.myImg(this.state.Img)}
                 </div>
                 <div style={{marginTop: '50px'}}>
                     <BlueTitle title="Tin cùng chủ đề" />
